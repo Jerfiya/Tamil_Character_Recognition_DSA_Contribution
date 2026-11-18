@@ -1,0 +1,14 @@
+{
+  "run": "20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96",
+  "checkpoint": "best_val_loss.pt",
+  "onnx_path": "C:\\Users\\Dell\\Downloads\\project_kl\\tamil-dl-fewshot-htr\\models\\embedder.onnx",
+  "opset": 17,
+  "samples_compared": 256,
+  "max_abs_diff": 1.0579824447631836e-05,
+  "max_rel_diff": 3.8746911741327494e-06,
+  "mean_cosine": 1.0,
+  "parity_ok": true,
+  "torch_cpu_ms_per_image": 8.193799000000581,
+  "onnxruntime_cpu_ms_per_image": 1.442108500014001,
+  "onnx_size_kb": 12081.005859375
+}

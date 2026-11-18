@@ -1,0 +1,7 @@
+tag,setting,epochs,best_val_loss,best_val_loss_epoch,best_val_acc,ci,final_train_loss,params,sec_per_epoch,pretrained_loaded,status
+abl_mnv3_pre96,"MobileNetV3-L ImageNet-pretrained, 96 px",8,0.220424,8,0.9398,0.00757068,0.287238,4324753,479.869,True,finished
+abl_mnv3_scr96,"MobileNetV3-L from scratch, 96 px",8,0.706609,8,0.7522,0.015181,1.20627,4324753,463.4075,False,finished
+lr3e-3,lr 3e-3,8,0.306301,8,0.908,0.00871264,0.659425,185537,177.8055,False,finished
+lr1e-3,"baseline: 20-way 5-shot, lr 1e-3, emb 128, Euclidean, EMA, 48 px, Conv4",8,0.338346,8,0.8946,0.00982122,0.724046,185537,137.8995,False,finished
+lr3e-4,lr 3e-4,8,0.419275,8,0.8652,0.0130439,0.899817,185537,142.20600000000002,False,finished
+lr1e-4,lr 1e-4,8,0.564222,8,0.8068,0.0143519,1.2247,185537,126.501,False,finished

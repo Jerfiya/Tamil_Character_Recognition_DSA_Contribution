@@ -1,0 +1,127 @@
+# Single configuration file. Every CLI accepts --config and --set key.sub=value overrides.
+# Values marked (CPU) were scaled down because this machine has no CUDA GPU; see reports/decisions.md.
+seed: 42
+threads: 2                    # torch intra-op threads per process (CPU scales poorly past 2; several runs execute in parallel)
+
+paths:
+  scan_root: ".."             # scanned recursively for the dataset tree; never written to
+  interim: data/interim
+  processed: data/processed
+  support_set: data/support_set
+  models: models
+  runs: runs
+  reports: reports
+
+audit:
+  image_exts: [".png", ".jpg", ".jpeg", ".bmp", ".webp"]
+  phash_threshold: 4          # Hamming distance (64-bit pHash) for within-class near-duplicates
+  kq_table: [2, 6, 10, 15, 20]
+
+preprocess:
+  size: 48                    # (CPU) every source image is 48x48, so 48 loses nothing; 64 and 96 are cached for the input-size ablation
+  extra_sizes: [64, 96]
+  margin_frac: 0.08           # blank border kept around the ink box
+  denoise: true
+  threshold: otsu             # otsu | adaptive
+  soft: true                  # keeps grey levels inside the ink mask (chosen: sources are 48x48 and low-contrast, hard binarisation fragments thin strokes)
+  min_ink_frac: 0.002
+  mean: 0.5
+  std: 0.5
+
+split:
+  seed: 42
+  A: {train: 0.70, val: 0.15, test: 0.15}
+  B: {base: 0.70, val: 0.15, novel: 0.15, min_images_eval: 15}
+
+model:
+  backbone: conv4             # conv4 | resnet12 | resnet18 | efficientnet_b0 | mobilenetv3_large_100 | convnext_tiny | resnet50 | vit_small
+  emb_dim: 128
+  hidden: 64                  # conv4 channels
+  width: 16                   # base width of resnet12 / resnet18 (CPU: a quarter of the usual 64)
+  pretrained: true            # timm backbones only
+  gray_mode: adapt            # adapt (1-channel stem) | replicate (grey copied to 3 channels)
+  input_size: 48
+
+method:
+  name: protonet              # protonet | matchingnet | relationnet | siamese | arcface | baselinepp | maml | supervised
+  distance: euclidean         # protonet: euclidean | cosine
+  init_temperature: 1.0
+  fce: false                  # matching network full-context embeddings
+  siamese_loss: triplet       # triplet | contrastive
+  margin: 0.3
+  arc_s: 24.0
+  arc_m: 0.35
+  arc_type: arcface           # arcface | cosface
+  bpp_steps: 60               # Baseline++ support fine-tuning steps
+  bpp_lr: 0.05
+  maml_inner_lr: 0.05
+  maml_inner_steps: 3
+  maml_eval_steps: 5
+  init_from: null             # checkpoint to load backbone weights from (ArcFace -> episodic)
+
+train:
+  protocol: B                 # A (known-class) | B (novel-class)
+  epochs: 30
+  episodes_per_epoch: 50      # (CPU) definition of one epoch; use 200 on a GPU
+  n_way: 20
+  k_shot: 5                   # int, or a list such as [1, 2, 3, 5] for mixed-shot training
+  q_query: 5
+  lr: 0.001
+  weight_decay: 0.0005
+  scheduler: cosine           # cosine (with warmup) | plateau | none
+  warmup_epochs: 2
+  grad_clip: 5.0
+  ema: true
+  ema_decay: 0.995
+  label_smoothing: 0.05
+  amp: auto
+  augment: true
+  step_log_every: 10
+  ckpt_every: 10
+  early_stopping: true
+  patience: 10
+  overfit_patience: 3
+  plateau_patience: 6
+  plateau_eps: 0.002
+  tensorboard: true
+
+val:
+  episodes: 200               # FIXED list, generated once from val.seed
+  n_way: 10
+  k_shot: 5
+  q_query: 5
+  seed: 1234
+
+augment:
+  rotate_deg: 10
+  translate: 0.10
+  scale: 0.10
+  shear_deg: 8
+  elastic_alpha: 1.5          # pixels of displacement
+  elastic_grid: 6
+  noise_std: 0.05
+  blur_p: 0.2
+  stroke_p: 0.3
+  brightness: 0.15
+  contrast: 0.15
+  erase_p: 0.25
+  erase_frac: 0.15
+
+eval:
+  episodes: 600
+  ways: [5, 10, 20, all]
+  shots: [1, 2, 3, 5, 10]
+  q_query: 5
+  seed: 2024
+  key_way: 5
+  key_shot: 5
+  full_shots: 5               # shots per class in the full-alphabet evaluation
+  full_draws: 5               # independent support draws for the full-alphabet evaluation
+  relation_pair_budget: 4000000   # caps relation-net episodes for very large N
+  maml_episodes: 100
+  openset_episodes: 300
+  transductive_steps: 5
+
+deploy:
+  unknown_label: unknown
+  top_k: 5

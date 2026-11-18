@@ -1,0 +1,130 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Tamil Letter Recognition Report</title><style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', 'Nirmala UI', Arial, sans-serif; font-size: 10.2pt; line-height: 1.45; color: #1a1a1a; }
+.ta { font-family: 'Nirmala UI', 'Noto Sans Tamil', sans-serif; }
+h1 { font-size: 15pt; color: #12355b; border-bottom: 2px solid #12355b; padding-bottom: 3px; margin: 0 0 8px; page-break-after: avoid; }
+h2 { font-size: 12pt; color: #12355b; margin: 14px 0 5px; page-break-after: avoid; }
+h3 { font-size: 10.5pt; margin: 10px 0 4px; page-break-after: avoid; }
+p { margin: 4px 0 7px; text-align: justify; }
+ul, ol { margin: 3px 0 8px 18px; padding: 0; } li { margin: 2px 0; }
+table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 8.8pt; page-break-inside: avoid; }
+th { background: #12355b; color: #fff; font-weight: 600; padding: 4px 5px; text-align: left; }
+td { border-bottom: 1px solid #d5dbe3; padding: 3px 5px; vertical-align: top; }
+tr:nth-child(even) td { background: #f4f7fb; }
+tr.hl td { background: #fff4d6 !important; font-weight: 600; }
+figure { margin: 8px 0 12px; text-align: center; page-break-inside: avoid; }
+figure img { max-width: 100%; border: 1px solid #e3e3e3; }
+figcaption { font-size: 8.6pt; color: #444; margin-top: 3px; text-align: left; }
+.section { page-break-before: always; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: space-between; }
+.cover .band { background: #12355b; color: #fff; padding: 22px 24px; border-radius: 4px; }
+.cover h0 { display: block; font-size: 22pt; font-weight: 700; line-height: 1.2; }
+.cover .sub { font-size: 12pt; margin-top: 8px; opacity: .92; }
+.meta td { border: none; padding: 3px 6px; font-size: 10.5pt; background: none !important; }
+.kpis { display: flex; gap: 8px; margin: 8px 0 10px; }
+.kpi { flex: 1; border: 1px solid #c9d3df; border-radius: 4px; padding: 7px 8px; text-align: center; }
+.kpi b { display: block; font-size: 15pt; color: #12355b; }
+.kpi span { font-size: 8.2pt; color: #444; }
+.note { background: #f4f7fb; border-left: 3px solid #12355b; padding: 6px 9px; margin: 6px 0 10px; font-size: 9.4pt; }
+.warn { background: #fff7e6; border-left: 3px solid #d48806; padding: 6px 9px; margin: 6px 0 10px; font-size: 9.4pt; }
+.two { display: flex; gap: 10px; } .two > * { flex: 1; }
+.small { font-size: 8.6pt; color: #444; }
+</style></head><body><div style="font-size:19pt;font-weight:700;color:#12355b">Handwritten Tamil Letter Recognition using Few-Shot Learning</div>
+<p class="small" style="margin-bottom:10px">Project report · 17 November 2026</p>
+<div class="note" style="font-size:10.2pt"><b>In one line:</b> we built a model that recognises a handwritten Tamil letter
+from only a few example images, including letters it never saw during training. Shown 5 examples each of 5 new letters,
+it picks the right letter <b>95.6%</b> of the time.</div>
+
+<h1>1. What the project does</h1>
+<p>Tamil has 247 letters, and many of them look very similar. Teaching a normal computer model to read them needs
+hundreds of examples of every letter, and the model has to be retrained whenever a letter is added.</p>
+<p>We used <b>few-shot learning</b> instead. The model learns <i>how to compare</i> handwriting rather than
+memorising each letter. To recognise a letter it only needs a few example images, usually 1 to 5. A new letter
+can be added just by giving it a few examples, with <b>no retraining</b>.</p>
+
+<h1>2. The data</h1>
+<table class=""><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>Letters (classes)</td><td>247: 12 vowels, 18 consonants, 216 consonant-vowel letters, 1 āytham (<span class="ta">ஃ</span>)</td></tr><tr><td>Images</td><td>14,463 handwritten images, each 48 × 48 pixels</td></tr><tr><td>After cleaning</td><td>14,205 images (258 near-duplicate copies removed)</td></tr><tr><td>Images per letter</td><td>between 4 and 96 (typically about 46)</td></tr><tr><td>Missing letters</td><td><span class="ta">தௌ, லௌ, ளௌ</span> (no images in the dataset)</td></tr><tr><td>Letters with very few images</td><td><span class="ta">ணே ணெ ழா ழ ணு ணூ ழி ழீ</span> (only 4 to 6 images each)</td></tr></tbody></table>
+<p>Before training, every image is cleaned the same way: it is turned into black-and-white, the letter is cut out
+from the background and centred, and it is resized to a fixed size.</p>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/preprocess_samples.png" style="width:70%"/><figcaption><b>Figure 1.</b> Examples of cleaned images given to the model.</figcaption></figure>
+
+<h1>3. The proposed model</h1>
+<p><b>Model:</b> a <b>Prototypical Network</b> built on <b>MobileNetV3</b>, a well-known image network already
+pretrained on millions of general photos.</p>
+<p><b>How it works, in four steps:</b></p><ol>
+<li>The network turns every letter image into a list of 128 numbers, like a fingerprint of its shape.</li>
+<li>For each letter, the fingerprints of its few example images are averaged. This average is the letter's <b>prototype</b>.</li>
+<li>A new image is given to the letter whose prototype is <b>closest</b> to its fingerprint.</li>
+<li>If no prototype is close enough, the model can answer <b>"unknown"</b>.</li></ol>
+<table class=""><thead><tr><th>Detail</th><th>Value</th></tr></thead><tbody><tr><td>Model size</td><td>4.3 million parameters</td></tr><tr><td>Speed</td><td>about 1.4 milliseconds per image on a normal laptop (no GPU needed)</td></tr><tr><td>File</td><td><code>models/embedder.onnx</code> (12 MB), checked to give the same answers as the original model</td></tr><tr><td>Why this model</td><td>it had the best score on the validation data, which was used to choose between all the models we trained</td></tr></tbody></table>
+
+<h1>4. How we tested it</h1>
+<p>We split the 247 letters into three groups. The model <b>trained</b> on 173 letters. Another
+37 letters were used to <b>choose settings</b>. The last <b>37 letters were kept
+completely hidden</b> until the final test. So the test checks whether the model can recognise letters it has
+<b>never seen before</b>, which is the real goal of few-shot learning.</p>
+<p>Each test round, called an <i>episode</i>, gives the model a few example images of some letters and asks it to
+label new images of those letters. We ran 600 rounds for each setting and report the average.</p>
+
+<h1>5. Results</h1>
+<div class="kpis">
+<div class="kpi"><b>95.6%</b><span>choose among 5 new letters,<br>5 examples each</span></div>
+<div class="kpi"><b>89.7%</b><span>choose among 5 new letters,<br>only 1 example each</span></div>
+<div class="kpi"><b>83.3%</b><span>choose among all 37 new letters,<br>5 examples each</span></div>
+<div class="kpi"><b>97.1%</b><span>correct letter in the<br>top 5 guesses (all 37)</span></div></div>
+<h3>Accuracy on new letters (never seen in training)</h3>
+<table class=""><thead><tr><th>Number of letters to choose from</th><th>1 example per letter</th><th>5 examples per letter</th><th>10 examples per letter</th></tr></thead><tbody><tr><td>5 letters</td><td>89.7%</td><td>95.4%</td><td>95.8%</td></tr><tr><td>10 letters</td><td>83.6%</td><td>92.1%</td><td>92.6%</td></tr><tr><td>20 letters</td><td>77.2%</td><td>88.0%</td><td>88.6%</td></tr><tr><td>All 37 new letters</td><td>70.2%</td><td>83.5%</td><td>84.6%</td></tr></tbody></table>
+<p><b>How to read this:</b> more examples per letter means better accuracy, and more letters to choose from makes the
+task harder. Even with a single example, the model gets about 9 out of 10 right when choosing among 5 letters.</p>
+<p><b>Other checks:</b></p><ul>
+<li><b>Confidence is trustworthy.</b> When the model says it is 80% sure, it is right about 80% of the time
+(calibration error 0.044, where 0 is perfect).</li>
+<li><b>Overall quality score</b> (macro F1, from 0 to 1) across all 37 new letters: <b>0.82</b>.</li>
+<li>Accuracy by letter type: consonant 85.5%, consonant-vowel 81.9%, vowel 92.8%.</li></ul><h1>6. Comparison with other methods</h1>
+<p>We trained eight few-shot methods on exactly the same data and tested them the same way, on the new letters.</p>
+<table class=""><thead><tr><th>Method</th><th>5 letters, 1 example</th><th>5 letters, 5 examples</th><th>All 37 letters, 5 examples</th></tr></thead><tbody><tr class="hl"><td><b>ProtoNet + MobileNetV3 (proposed)</b></td><td>89.7%</td><td>95.6%</td><td>83.5%</td></tr><tr><td>Matching Network</td><td>88.3%</td><td>95.0%</td><td>80.6%</td></tr><tr><td>ArcFace + ProtoNet</td><td>87.2%</td><td>94.6%</td><td>81.2%</td></tr><tr><td>ProtoNet (small network)</td><td>87.5%</td><td>94.4%</td><td>80.3%</td></tr><tr><td>Siamese network</td><td>89.0%</td><td>94.1%</td><td>76.4%</td></tr><tr><td>Relation Network</td><td>86.8%</td><td>94.0%</td><td>76.3%</td></tr><tr><td>ArcFace</td><td>84.9%</td><td>93.2%</td><td>76.8%</td></tr><tr><td>Baseline++</td><td>84.3%</td><td>92.4%</td><td>75.4%</td></tr><tr><td>MAML</td><td>86.1%</td><td>71.3%</td><td>—</td></tr></tbody></table>
+<p><b>Key takeaways:</b> the proposed model is the best in every column. Most of its advantage comes from starting
+with a network that was <b>already pretrained</b> on general images; the same network trained from zero reached only
+about 85%. The other methods use a smaller network, and the best of them are within about 1 point of each other.
+MAML was unstable on this task.</p>
+<p>We also trained a <b>normal classifier</b> (not few-shot) for comparison. It only works on letters it was trained on. Even there, the few-shot ProtoNet did better: 95.3% vs 93.5% (5 letters, 5 examples), and 60.9% vs 54.4% among all 247 letters.</p>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/figures/report_learning_curves.png" style="width:100%"/><figcaption><b>Figure 2.</b> Accuracy on new letters as the number of examples per letter grows. The proposed model (black line) is the highest everywhere.</figcaption></figure><h1>7. Where the model makes mistakes</h1>
+<p>Most mistakes are between letters that really do look alike. Two patterns stand out:</p><ul>
+<li><b>Two-part vowel signs</b> (<span class="ta">ொ, ோ, ௌ</span>) have pieces on both sides of the consonant, and these letters get
+mixed up with each other.</li>
+<li><b>Consonants that differ by one small stroke or loop</b>, for example <span class="ta">னீ</span> and <span class="ta">ளீ</span>, or <span class="ta">டி</span>
+and <span class="ta">ழ்</span>. The small dot (pulli) is hard to see in a 48-pixel image.</li></ul>
+<div class="two"><div><table class=""><thead><tr><th>Letters most often confused</th><th>Times confused</th></tr></thead><tbody><tr><td><span class="ta">லெள  and  வௌ</span></td><td>25</td></tr><tr><td><span class="ta">னீ  and  ளீ</span></td><td>23</td></tr><tr><td><span class="ta">மௌ  and  வௌ</span></td><td>19</td></tr><tr><td><span class="ta">பௌ  and  மௌ</span></td><td>19</td></tr><tr><td><span class="ta">தோ  and  றோ</span></td><td>15</td></tr><tr><td><span class="ta">டி  and  ழ்</span></td><td>14</td></tr><tr><td><span class="ta">ஞௌ  and  நௌ</span></td><td>13</td></tr></tbody></table></div>
+<div><p><b>Hardest letters:</b><br><span class="ta">லெள</span>, <span class="ta">மௌ</span>, <span class="ta">வௌ</span>, <span class="ta">றோ</span>, <span class="ta">ஞௌ</span>, <span class="ta">ணௌ</span>, <span class="ta">டி</span></p><p><b>Easiest letters:</b><br><span class="ta">யீ</span>, <span class="ta">கே</span>, <span class="ta">ற</span>, <span class="ta">டெ</span>, <span class="ta">அ</span>, <span class="ta">ஙை</span>, <span class="ta">ரே</span></p>
+<p class="small">Some mistakes come from bad images in the dataset, such as dark backgrounds or a cut-off letter.</p></div></div>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/misclassified.png" style="width:85%"/><figcaption><b>Figure 3.</b> Examples of mistakes, shown as true letter > predicted letter. Several of these images are poor quality.</figcaption></figure><h1>8. Adding a new letter without retraining</h1>
+<p>To show this works, we removed some letters from the model's list, added each back using only 5 example images,
+and tested it again. No training was needed, and each letter took about a second to add.</p>
+<table class=""><thead><tr><th>Letter added back</th><th>Correct (1st guess)</th><th>Correct (in top 5 guesses)</th></tr></thead><tbody><tr><td><span class="ta">அ</span></td><td>89%</td><td>93%</td></tr><tr><td><span class="ta">ஏ</span></td><td>96%</td><td>96%</td></tr><tr><td><span class="ta">கே</span></td><td>86%</td><td>93%</td></tr><tr><td><span class="ta">ஙை</span></td><td>75%</td><td>92%</td></tr><tr><td><span class="ta">ச</span></td><td>50%</td><td>79%</td></tr><tr><td><span class="ta">சி</span></td><td>79%</td><td>86%</td></tr></tbody></table>
+<p>We also added the missing letter <span class="ta">தௌ</span> the same way. Because the dataset has no handwritten samples of it,
+we used computer-rendered images for this demonstration, and the model then recognised it correctly. Real
+handwritten samples should replace them.</p>
+
+<h1>9. Limitations</h1><ul>
+<li><b>Trained on a laptop.</b> There was no GPU, so training was short. Our tests show the model would still improve
+with about 5 times more training, so these results are on the low side.</li>
+<li><b>"Unknown" answers are weak.</b> When all 247 letters are loaded, an unfamiliar letter almost always looks close
+to some known letter, so the model rarely says "unknown".</li>
+<li><b>Data quality.</b> The images are small (48 × 48), 8 letters have only 4 to 6 images, and some images are unclear.</li>
+<li><b>Possible duplicate letters.</b> <span class="ta">தெள, லெள, ளெள</span> look exactly like the "missing" letters
+<span class="ta">தௌ, லௌ, ளௌ</span>, but are typed with a different Unicode spelling (ெ + ள instead of the single sign ௌ). They are
+probably the same letters, and this needs to be checked.</li></ul>
+
+<h1>10. Conclusion and next steps</h1>
+<p>The proposed model, a Prototypical Network on a pretrained MobileNetV3, recognises Tamil letters it has never seen
+with <b>95.6%</b> accuracy from 5 examples (choosing among 5 letters) and
+<b>83.3%</b> among all 37 new letters. It is fast, its confidence scores are reliable, and
+new letters can be added without retraining.</p>
+<p><b>Next steps:</b></p><ol>
+<li>Train the same model for longer, preferably on a GPU.</li>
+<li>Collect more images for the letters with very few samples, and for the <span class="ta">ொ / ோ / ௌ</span> letters.</li>
+<li>Check the <span class="ta">தெள / லெள / ளெள</span> spelling question, and collect real handwritten <span class="ta">தௌ, லௌ, ளௌ</span>.</li>
+<li>Improve the "unknown letter" detection.</li></ol>
+<p class="small">Full technical details (all experiments, settings and extra charts) are in the detailed report
+(<code>reports/Tamil_FewShot_HTR_Report_detailed.pdf</code>) and in the project's <code>reports/</code> folder.</p></body></html>

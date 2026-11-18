@@ -1,0 +1,14 @@
+01:29 baselinepp_B_resume2 exit=0
+02:00 siamese_B_resume exit=0
+02:26 protonet_B_seed123 exit=0
+02:26 protonet_B_seed7 exit=0
+02:26 arcface_ft_B exit=0
+02:49 maml_B exit=0
+02:49 lr_3e-3 exit=0
+03:02 abl_effb0_pre96 exit=0
+03:08 lr_1e-3 exit=0
+03:09 lr_3e-4 exit=0
+03:16 epochstudy_A_resume exit=0
+03:19 abl_mnv3_pre96 exit=0
+03:20 lr_1e-4 exit=0
+03:28 abl_mnv3_scr96 exit=0

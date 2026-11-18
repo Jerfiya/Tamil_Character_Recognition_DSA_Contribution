@@ -1,0 +1,39 @@
+01:24:59 INFO    runmodel | full-set A/val: 8 classes had < 5 support images (sampled with replacement)
+01:26:24 INFO    calibrate | 20261116_174747_protonet_conv4_A_final best_val_loss.pt: T=0.687 ECE 0.2080 -> 0.0540, open-set thr=-4.924 (val AUROC 0.773)
+01:28:55 INFO    runmodel | full-set A/test: 8 classes had < 5 support images (sampled with replacement)
+01:29:50 INFO    evaluate | A_test          5-way  1-shot: 0.9035 +- 0.0069 (600 eps, 6s)
+01:29:58 INFO    evaluate | A_test          5-way  2-shot: 0.9427 +- 0.0048 (600 eps, 7s)
+01:30:05 INFO    evaluate | A_test          5-way  3-shot: 0.9478 +- 0.0043 (600 eps, 7s)
+01:30:13 INFO    evaluate | A_test          5-way  5-shot: 0.9562 +- 0.0039 (600 eps, 9s)
+01:30:22 INFO    evaluate | A_test          5-way 10-shot: 0.9603 +- 0.0035 (600 eps, 8s)
+01:30:31 INFO    evaluate | A_test         10-way  1-shot: 0.8411 +- 0.0061 (600 eps, 9s)
+01:30:41 INFO    evaluate | A_test         10-way  2-shot: 0.8967 +- 0.0046 (600 eps, 10s)
+01:30:52 INFO    evaluate | A_test         10-way  3-shot: 0.9139 +- 0.0043 (600 eps, 11s)
+01:31:03 INFO    evaluate | A_test         10-way  5-shot: 0.9284 +- 0.0036 (600 eps, 11s)
+01:31:14 INFO    evaluate | A_test         10-way 10-shot: 0.9379 +- 0.0031 (600 eps, 11s)
+01:31:28 INFO    evaluate | A_test         20-way  1-shot: 0.7589 +- 0.0054 (600 eps, 14s)
+01:31:45 INFO    evaluate | A_test         20-way  2-shot: 0.8425 +- 0.0040 (600 eps, 17s)
+01:32:01 INFO    evaluate | A_test         20-way  3-shot: 0.8712 +- 0.0035 (600 eps, 16s)
+01:32:17 INFO    evaluate | A_test         20-way  5-shot: 0.8911 +- 0.0032 (600 eps, 16s)
+01:32:33 INFO    evaluate | A_test         20-way 10-shot: 0.9027 +- 0.0028 (600 eps, 16s)
+01:32:33 WARNING episodes | [A_test] all-way K=1: 8 of 247 classes have fewer than Q=5 queries (using what exists); 0 classes excluded for lack of images
+01:34:46 INFO    evaluate | A_test        all-way  1-shot: 0.3925 +- 0.0013 (600 eps, 133s)
+01:34:46 WARNING episodes | [A_test] all-way K=2: 8 of 247 classes have fewer than Q=5 queries (using what exists); 0 classes excluded for lack of images
+01:37:05 INFO    evaluate | A_test        all-way  2-shot: 0.4989 +- 0.0011 (600 eps, 139s)
+01:37:05 WARNING episodes | [A_test] all-way K=3: 4 of 243 classes have fewer than Q=5 queries (using what exists); 4 classes excluded for lack of images
+01:39:24 INFO    evaluate | A_test        all-way  3-shot: 0.5545 +- 0.0010 (600 eps, 138s)
+01:41:45 INFO    evaluate | A_test        all-way  5-shot: 0.6092 +- 0.0010 (600 eps, 142s)
+01:44:05 INFO    evaluate | A_test        all-way 10-shot: 0.6555 +- 0.0008 (600 eps, 139s)
+C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\src\evaluate.py:86: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+  temp = float(m.temperature) if hasattr(m, "temperature") else 1.0
+01:46:49 INFO    runmodel | full-set A/test: 8 classes had < 5 support images (sampled with replacement)
+01:46:49 INFO    evaluate | 20261116_174747_protonet_conv4_A_final best_val_loss.pt: key 5-way 5-shot 0.9533 +- 0.0040 | full-set acc 0.6160, macro-F1 0.5926, ECE 0.220 -> 0.065
+01:46:50 INFO    runmodel | full-set A/val: 8 classes had < 5 support images (sampled with replacement)
+01:48:19 INFO    calibrate | 20261116_174747_protonet_conv4_A_final best_val_acc.pt: T=0.687 ECE 0.2080 -> 0.0540, open-set thr=-4.924 (val AUROC 0.773)
+01:51:06 INFO    runmodel | full-set A/test: 8 classes had < 5 support images (sampled with replacement)
+01:51:10 INFO    evaluate | 20261116_174747_protonet_conv4_A_final best_val_acc.pt: key 5-way 5-shot 0.9533 +- 0.0040 | full-set acc 0.6160, macro-F1 0.5926, ECE 0.220 -> 0.065
+01:51:11 INFO    runmodel | full-set A/val: 8 classes had < 5 support images (sampled with replacement)
+01:52:40 INFO    calibrate | 20261116_174747_protonet_conv4_A_final last.pt: T=0.687 ECE 0.2080 -> 0.0540, open-set thr=-4.924 (val AUROC 0.773)
+01:55:27 INFO    runmodel | full-set A/test: 8 classes had < 5 support images (sampled with replacement)
+01:55:31 INFO    evaluate | 20261116_174747_protonet_conv4_A_final last.pt: key 5-way 5-shot 0.9533 +- 0.0040 | full-set acc 0.6160, macro-F1 0.5926, ECE 0.220 -> 0.065

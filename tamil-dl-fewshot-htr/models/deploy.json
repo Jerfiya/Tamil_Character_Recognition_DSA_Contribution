@@ -1,0 +1,31 @@
+{
+  "run": "20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96",
+  "run_dir": "runs\\20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96",
+  "checkpoint": "best_val_loss.pt",
+  "checkpoint_epoch": 8,
+  "method": "protonet",
+  "backbone": "mobilenetv3_large",
+  "input_size": 96,
+  "embedding_dim": 128,
+  "preprocess": {
+    "size": 48,
+    "extra_sizes": [
+      64,
+      96
+    ],
+    "margin_frac": 0.08,
+    "denoise": true,
+    "threshold": "otsu",
+    "soft": true,
+    "min_ink_frac": 0.002,
+    "mean": 0.5,
+    "std": 0.5
+  },
+  "geometry": "euclidean",
+  "scale": 0.1239418312907219,
+  "calibration_temperature": 0.6399558302292409,
+  "openset_threshold_max_logit": -4.448291778564453,
+  "openset_threshold_note": "max-logit threshold accepting 95% of enrolled val queries at K=5 (validation only)",
+  "onnx": "embedder.onnx",
+  "torch": "embedder.pt"
+}

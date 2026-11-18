@@ -1,0 +1,12 @@
+03:03:16 INFO    train | run dir: C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\runs\20261117_030315_protonet_conv4_B_lr1e-4
+03:05:40 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+03:05:40 INFO    tracking |     1 |    2.5602    1.3722 |  0.2602   0.6204 +-0.0149 0.8568 | 5.10e-05   144s   4.754  0.22   1.00  1.00 | *L*A
+03:08:07 INFO    tracking |     2 |    2.1005    0.9272 |  0.3692   0.7104 +-0.0156 0.9224 | 1.00e-04   147s   4.841  0.36   1.24  1.00 | *L*A
+03:10:17 INFO    tracking |     3 |    1.6514    0.7344 |  0.4890   0.7558 +-0.0148 0.9460 | 9.34e-05   130s   5.468  0.84   1.43  1.01 | *L*A
+03:12:16 INFO    tracking |     4 |    1.4804    0.6536 |  0.5530   0.7762 +-0.0144 0.9546 | 7.52e-05   118s   5.611  0.90   1.50  1.01 | *L*A
+03:14:22 INFO    tracking |     5 |    1.3482    0.6097 |  0.5870   0.7902 +-0.0149 0.9582 | 5.05e-05   126s   5.539  0.80   1.51  1.01 | *L*A
+03:16:29 INFO    tracking |     6 |    1.2756    0.5830 |  0.5958   0.7994 +-0.0145 0.9598 | 2.58e-05   127s   5.217  0.70   1.51  1.01 | *L*A
+03:18:23 INFO    tracking |     7 |    1.2922    0.5703 |  0.6130   0.8028 +-0.0145 0.9610 | 7.63e-06   114s   5.721  0.86   1.52  1.01 | *L*A
+03:20:13 INFO    tracking |     8 |    1.2247    0.5642 |  0.6250   0.8068 +-0.0144 0.9610 | 1.00e-06   110s   5.326  0.70   1.52  1.01 | *L*A
+03:20:13 INFO    tracking | run finished: max_epochs (best val loss 0.5642 at epoch 8; best val acc 0.8068 at epoch 8)
+RUN_DIR=C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\runs\20261117_030315_protonet_conv4_B_lr1e-4

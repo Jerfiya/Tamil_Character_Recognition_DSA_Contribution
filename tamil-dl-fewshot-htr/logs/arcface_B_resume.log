@@ -1,0 +1,11 @@
+22:29:57 INFO    train | resumed from runs\20261116_185222_arcface_conv4_B_final\checkpoints\last.pt at epoch 8
+22:32:43 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+22:32:43 INFO    tracking |     9 |    2.0971    0.5824 |  0.4537   0.8630 +-0.0118 0.9676 | 4.45e-04   166s  10.916  1.00   2.08  0.00 | *L*A
+22:36:55 INFO    tracking |    10 |    1.9254    0.5419 |  0.4966   0.8762 +-0.0110 0.9720 | 3.29e-04   251s  11.336  1.00   2.07  0.00 | *L*A
+22:41:47 INFO    tracking |    11 |    1.7405    0.5020 |  0.5454   0.8858 +-0.0101 0.9740 | 2.24e-04   292s  11.793  1.00   2.04  0.00 | *L*A
+22:47:11 INFO    tracking |    12 |    1.6697    0.4801 |  0.5617   0.8936 +-0.0098 0.9746 | 1.34e-04   323s  11.967  1.00   2.01  0.00 | *L*A
+22:51:50 INFO    tracking |    13 |    1.5810    0.4592 |  0.5957   0.8988 +-0.0097 0.9760 | 6.67e-05   279s  12.371  1.00   1.99  0.00 | *L*A
+22:55:17 INFO    tracking |    14 |    1.5467    0.4444 |  0.5965   0.9012 +-0.0096 0.9760 | 2.44e-05   207s  12.265  1.00   1.97  0.00 | *L*A
+22:57:56 INFO    tracking |    15 |    1.5180    0.4355 |  0.6045   0.9022 +-0.0096 0.9758 | 1.00e-05   159s  12.339  1.00   1.96  0.00 | *L*A
+22:57:57 INFO    tracking | run finished: max_epochs (best val loss 0.4355 at epoch 15; best val acc 0.9022 at epoch 15)
+RUN_DIR=runs\20261116_185222_arcface_conv4_B_final

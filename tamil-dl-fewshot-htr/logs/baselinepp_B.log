@@ -1,0 +1,8 @@
+18:55:41 INFO    train | run dir: C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\runs\20261116_185539_baselinepp_conv4_B_final
+18:59:20 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+18:59:20 INFO    tracking |     1 |    5.9224    1.1972 |  0.0159   0.6526 +-0.0159 0.8872 | 5.10e-04   219s  16.325  1.00   1.00  0.00 | *L*A
+19:03:56 INFO    tracking |     2 |    4.9928    1.0719 |  0.0384   0.6914 +-0.0155 0.9040 | 1.00e-03   277s   8.574  1.00   1.36  0.00 | *L*A
+19:06:42 INFO    tracking |     3 |    4.4864    0.8950 |  0.0807   0.7308 +-0.0153 0.9254 | 9.86e-04   165s   7.591  1.00   1.72  0.00 | *L*A
+19:10:20 INFO    tracking |     4 |    3.9251    0.8149 |  0.1410   0.7698 +-0.0133 0.9422 | 9.43e-04   219s   7.399  1.00   1.93  0.00 | *L*A
+19:12:45 INFO    tracking |     5 |    3.2825    0.7462 |  0.2202   0.7990 +-0.0125 0.9518 | 8.76e-04   145s   7.303  1.00   2.06  0.00 | *L*A
+19:15:19 INFO    tracking |     6 |    2.8365    0.7069 |  0.2976   0.8234 +-0.0118 0.9562 | 7.86e-04   154s   7.057  1.00   2.10  0.00 | *L*A

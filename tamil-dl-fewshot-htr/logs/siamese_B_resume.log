@@ -1,0 +1,15 @@
+01:07:50 INFO    train | resumed from runs\20261116_222957_siamese_conv4_B_final\checkpoints\last.pt at epoch 7
+C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\src\losses.py:59: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+  comps = {"loss_pos": float(hard_pos.mean()), "loss_neg": float(F.relu(margin - hard_neg).mean()),
+01:14:38 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+01:14:38 INFO    tracking |     8 |    0.2203    0.2221 |  0.7628   0.8930 +-0.0114 0.9814 | 5.65e-04   409s   0.779  0.00   2.58  0.00 | *L*A
+01:21:16 INFO    tracking |     9 |    0.2189    0.2241 |  0.7710   0.8994 +-0.0115 0.9814 | 4.45e-04   397s   0.815  0.00   2.62  0.00 | *A
+01:27:58 INFO    tracking |    10 |    0.2177    0.2245 |  0.7830   0.8980 +-0.0114 0.9834 | 3.29e-04   401s   0.809  0.00   2.63  0.00 | 
+01:34:53 INFO    tracking |    11 |    0.2135    0.2220 |  0.7824   0.9008 +-0.0114 0.9822 | 2.24e-04   415s   0.856  0.00   2.63  0.00 | *L*A
+01:41:48 INFO    tracking |    12 |    0.2135    0.2240 |  0.7804   0.9020 +-0.0113 0.9824 | 1.34e-04   415s   0.854  0.00   2.63  0.00 | *A
+01:48:45 INFO    tracking |    13 |    0.2126    0.2203 |  0.8010   0.9032 +-0.0112 0.9832 | 6.67e-05   416s   0.892  0.00   2.61  0.00 | *L*A
+01:56:01 INFO    tracking |    14 |    0.2105    0.2195 |  0.7970   0.9024 +-0.0115 0.9832 | 2.44e-05   436s   0.903  0.00   2.61  0.00 | *L
+02:00:44 INFO    tracking |    15 |    0.2091    0.2200 |  0.8030   0.9038 +-0.0112 0.9838 | 1.00e-05   282s   0.934  0.00   2.62  0.00 | *A
+02:00:44 INFO    tracking | run finished: max_epochs (best val loss 0.2195 at epoch 14; best val acc 0.9038 at epoch 15)
+RUN_DIR=runs\20261116_222957_siamese_conv4_B_final

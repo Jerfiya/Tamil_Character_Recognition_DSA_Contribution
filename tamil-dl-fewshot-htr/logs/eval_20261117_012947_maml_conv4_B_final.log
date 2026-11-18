@@ -1,0 +1,17 @@
+04:17:48 INFO    evaluate | B_novel         5-way  1-shot: 0.8612 +- 0.0221 (100 eps, 33s)
+04:19:44 INFO    evaluate | B_novel         5-way  5-shot: 0.7132 +- 0.0536 (100 eps, 116s)
+04:20:43 INFO    evaluate | B_novel        10-way  1-shot: 0.7684 +- 0.0203 (100 eps, 59s)
+04:24:14 INFO    evaluate | B_novel        10-way  5-shot: 0.7948 +- 0.0204 (100 eps, 211s)
+04:26:21 INFO    evaluate | B_novel        20-way  1-shot: 0.6624 +- 0.0132 (100 eps, 127s)
+04:33:35 INFO    evaluate | B_novel        20-way  5-shot: 0.8066 +- 0.0095 (100 eps, 434s)
+04:34:07 INFO    evaluate | B_hard_novel    5-way  1-shot: 0.8556 +- 0.0251 (100 eps, 31s)
+04:35:59 INFO    evaluate | B_hard_novel    5-way  5-shot: 0.7136 +- 0.0512 (100 eps, 113s)
+04:36:57 INFO    evaluate | B_hard_novel   10-way  1-shot: 0.7392 +- 0.0206 (100 eps, 58s)
+04:40:31 INFO    evaluate | B_hard_novel   10-way  5-shot: 0.8012 +- 0.0214 (100 eps, 213s)
+04:42:37 INFO    evaluate | B_hard_novel   20-way  1-shot: 0.6620 +- 0.0132 (100 eps, 126s)
+04:47:16 INFO    evaluate | B_hard_novel   20-way  5-shot: 0.8101 +- 0.0098 (100 eps, 279s)
+04:48:41 INFO    evaluate | 20261117_012947_maml_conv4_B_final best_val_loss.pt: key 5-way 5-shot 0.7132 +- 0.0536 | full-set acc 0.6736, macro-F1 0.6219, ECE 0.415 -> 0.049
+04:49:19 INFO    calibrate | 20261117_012947_maml_conv4_B_final best_val_acc.pt: T=0.407 ECE 0.4021 -> 0.0594, open-set thr=2.957 (val AUROC 0.800)
+04:50:17 INFO    evaluate | 20261117_012947_maml_conv4_B_final best_val_acc.pt: key 5-way 5-shot 0.7132 +- 0.0536 | full-set acc 0.6736, macro-F1 0.6219, ECE 0.415 -> 0.049
+04:50:56 INFO    calibrate | 20261117_012947_maml_conv4_B_final last.pt: T=0.407 ECE 0.4021 -> 0.0594, open-set thr=2.957 (val AUROC 0.800)
+04:51:53 INFO    evaluate | 20261117_012947_maml_conv4_B_final last.pt: key 5-way 5-shot 0.7132 +- 0.0536 | full-set acc 0.6736, macro-F1 0.6219, ECE 0.415 -> 0.049

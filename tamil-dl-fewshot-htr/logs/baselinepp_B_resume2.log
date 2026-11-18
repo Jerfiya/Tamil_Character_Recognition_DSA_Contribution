@@ -1,0 +1,7 @@
+01:07:49 INFO    train | resumed from runs\20261116_185539_baselinepp_conv4_B_final\checkpoints\last.pt at epoch 12
+01:14:49 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+01:14:49 INFO    tracking |    13 |    1.5180    0.5215 |  0.6140   0.8894 +-0.0103 0.9698 | 6.67e-05   420s   6.033  0.92   2.10  0.00 | *L*A
+01:21:48 INFO    tracking |    14 |    1.4806    0.5063 |  0.6291   0.8908 +-0.0101 0.9704 | 2.44e-05   418s   5.899  1.00   2.09  0.00 | *L*A
+01:28:56 INFO    tracking |    15 |    1.4566    0.5019 |  0.6372   0.8934 +-0.0097 0.9698 | 1.00e-05   428s   5.882  1.00   2.09  0.00 | *L*A
+01:28:56 INFO    tracking | run finished: max_epochs (best val loss 0.5019 at epoch 15; best val acc 0.8934 at epoch 15)
+RUN_DIR=runs\20261116_185539_baselinepp_conv4_B_final

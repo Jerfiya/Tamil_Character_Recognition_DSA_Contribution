@@ -1,0 +1,2472 @@
+[
+ {
+  "index": 0,
+  "label": "ஃ",
+  "category": "ஆய்தம",
+  "category_en": "aytham",
+  "kind": "aytham",
+  "consonant": "",
+  "vowel": "-",
+  "count": 96
+ },
+ {
+  "index": 1,
+  "label": "அ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "அ",
+  "count": 95
+ },
+ {
+  "index": 2,
+  "label": "ஆ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஆ",
+  "count": 92
+ },
+ {
+  "index": 3,
+  "label": "இ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "இ",
+  "count": 93
+ },
+ {
+  "index": 4,
+  "label": "ஈ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஈ",
+  "count": 94
+ },
+ {
+  "index": 5,
+  "label": "உ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "உ",
+  "count": 94
+ },
+ {
+  "index": 6,
+  "label": "ஊ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஊ",
+  "count": 90
+ },
+ {
+  "index": 7,
+  "label": "எ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "எ",
+  "count": 92
+ },
+ {
+  "index": 8,
+  "label": "ஏ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஏ",
+  "count": 81
+ },
+ {
+  "index": 9,
+  "label": "ஐ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஐ",
+  "count": 90
+ },
+ {
+  "index": 10,
+  "label": "ஒ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஒ",
+  "count": 89
+ },
+ {
+  "index": 11,
+  "label": "ஓ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஓ",
+  "count": 94
+ },
+ {
+  "index": 12,
+  "label": "ஔ",
+  "category": "உயிர் எழுத்துக்கள",
+  "category_en": "vowel",
+  "kind": "vowel",
+  "consonant": "",
+  "vowel": "ஔ",
+  "count": 93
+ },
+ {
+  "index": 13,
+  "label": "க",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "",
+  "count": 86
+ },
+ {
+  "index": 14,
+  "label": "கா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ா",
+  "count": 87
+ },
+ {
+  "index": 15,
+  "label": "கி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ி",
+  "count": 72
+ },
+ {
+  "index": 16,
+  "label": "கீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ீ",
+  "count": 76
+ },
+ {
+  "index": 17,
+  "label": "கு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ு",
+  "count": 93
+ },
+ {
+  "index": 18,
+  "label": "கூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ூ",
+  "count": 90
+ },
+ {
+  "index": 19,
+  "label": "கெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ெ",
+  "count": 91
+ },
+ {
+  "index": 20,
+  "label": "கே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ே",
+  "count": 90
+ },
+ {
+  "index": 21,
+  "label": "கை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ை",
+  "count": 75
+ },
+ {
+  "index": 22,
+  "label": "கொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ொ",
+  "count": 71
+ },
+ {
+  "index": 23,
+  "label": "கோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ோ",
+  "count": 74
+ },
+ {
+  "index": 24,
+  "label": "கௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "க",
+  "vowel": "ௌ",
+  "count": 72
+ },
+ {
+  "index": 25,
+  "label": "ங",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "",
+  "count": 52
+ },
+ {
+  "index": 26,
+  "label": "ஙா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ா",
+  "count": 47
+ },
+ {
+  "index": 27,
+  "label": "ஙி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ி",
+  "count": 47
+ },
+ {
+  "index": 28,
+  "label": "ஙீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ீ",
+  "count": 49
+ },
+ {
+  "index": 29,
+  "label": "ஙு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 30,
+  "label": "ஙூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ூ",
+  "count": 44
+ },
+ {
+  "index": 31,
+  "label": "ஙெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ெ",
+  "count": 43
+ },
+ {
+  "index": 32,
+  "label": "ஙே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ே",
+  "count": 44
+ },
+ {
+  "index": 33,
+  "label": "ஙை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ை",
+  "count": 43
+ },
+ {
+  "index": 34,
+  "label": "ஙொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ொ",
+  "count": 43
+ },
+ {
+  "index": 35,
+  "label": "ஙோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ோ",
+  "count": 41
+ },
+ {
+  "index": 36,
+  "label": "ஙௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ங",
+  "vowel": "ௌ",
+  "count": 45
+ },
+ {
+  "index": 37,
+  "label": "ச",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "",
+  "count": 48
+ },
+ {
+  "index": 38,
+  "label": "சா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ா",
+  "count": 44
+ },
+ {
+  "index": 39,
+  "label": "சி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ி",
+  "count": 44
+ },
+ {
+  "index": 40,
+  "label": "சீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ீ",
+  "count": 44
+ },
+ {
+  "index": 41,
+  "label": "சு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 42,
+  "label": "சூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ூ",
+  "count": 46
+ },
+ {
+  "index": 43,
+  "label": "செ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ெ",
+  "count": 42
+ },
+ {
+  "index": 44,
+  "label": "சே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ே",
+  "count": 46
+ },
+ {
+  "index": 45,
+  "label": "சை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ை",
+  "count": 46
+ },
+ {
+  "index": 46,
+  "label": "சொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ொ",
+  "count": 44
+ },
+ {
+  "index": 47,
+  "label": "சோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ோ",
+  "count": 46
+ },
+ {
+  "index": 48,
+  "label": "சௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ச",
+  "vowel": "ௌ",
+  "count": 46
+ },
+ {
+  "index": 49,
+  "label": "ஞ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "",
+  "count": 47
+ },
+ {
+  "index": 50,
+  "label": "ஞா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ா",
+  "count": 47
+ },
+ {
+  "index": 51,
+  "label": "ஞி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ி",
+  "count": 45
+ },
+ {
+  "index": 52,
+  "label": "ஞீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ீ",
+  "count": 45
+ },
+ {
+  "index": 53,
+  "label": "ஞு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ு",
+  "count": 78
+ },
+ {
+  "index": 54,
+  "label": "ஞூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ூ",
+  "count": 78
+ },
+ {
+  "index": 55,
+  "label": "ஞெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ெ",
+  "count": 77
+ },
+ {
+  "index": 56,
+  "label": "ஞே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ே",
+  "count": 80
+ },
+ {
+  "index": 57,
+  "label": "ஞை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ை",
+  "count": 82
+ },
+ {
+  "index": 58,
+  "label": "ஞொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ொ",
+  "count": 81
+ },
+ {
+  "index": 59,
+  "label": "ஞோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ோ",
+  "count": 80
+ },
+ {
+  "index": 60,
+  "label": "ஞௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ஞ",
+  "vowel": "ௌ",
+  "count": 81
+ },
+ {
+  "index": 61,
+  "label": "ட",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "",
+  "count": 46
+ },
+ {
+  "index": 62,
+  "label": "டா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ா",
+  "count": 47
+ },
+ {
+  "index": 63,
+  "label": "டி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ி",
+  "count": 42
+ },
+ {
+  "index": 64,
+  "label": "டீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ீ",
+  "count": 46
+ },
+ {
+  "index": 65,
+  "label": "டு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ு",
+  "count": 46
+ },
+ {
+  "index": 66,
+  "label": "டூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ூ",
+  "count": 44
+ },
+ {
+  "index": 67,
+  "label": "டெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ெ",
+  "count": 42
+ },
+ {
+  "index": 68,
+  "label": "டே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ே",
+  "count": 43
+ },
+ {
+  "index": 69,
+  "label": "டை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ை",
+  "count": 81
+ },
+ {
+  "index": 70,
+  "label": "டொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ொ",
+  "count": 79
+ },
+ {
+  "index": 71,
+  "label": "டோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ோ",
+  "count": 77
+ },
+ {
+  "index": 72,
+  "label": "டௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ட",
+  "vowel": "ௌ",
+  "count": 74
+ },
+ {
+  "index": 73,
+  "label": "ண",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "",
+  "count": 45
+ },
+ {
+  "index": 74,
+  "label": "ணா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ா",
+  "count": 43
+ },
+ {
+  "index": 75,
+  "label": "ணி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ி",
+  "count": 43
+ },
+ {
+  "index": 76,
+  "label": "ணீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ீ",
+  "count": 43
+ },
+ {
+  "index": 77,
+  "label": "ணு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ு",
+  "count": 5
+ },
+ {
+  "index": 78,
+  "label": "ணூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ூ",
+  "count": 5
+ },
+ {
+  "index": 79,
+  "label": "ணெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ெ",
+  "count": 4
+ },
+ {
+  "index": 80,
+  "label": "ணே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ே",
+  "count": 4
+ },
+ {
+  "index": 81,
+  "label": "ணை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ை",
+  "count": 45
+ },
+ {
+  "index": 82,
+  "label": "ணொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ொ",
+  "count": 46
+ },
+ {
+  "index": 83,
+  "label": "ணோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ோ",
+  "count": 41
+ },
+ {
+  "index": 84,
+  "label": "ணௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ண",
+  "vowel": "ௌ",
+  "count": 44
+ },
+ {
+  "index": 85,
+  "label": "த",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "",
+  "count": 46
+ },
+ {
+  "index": 86,
+  "label": "தா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ா",
+  "count": 42
+ },
+ {
+  "index": 87,
+  "label": "தி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ி",
+  "count": 43
+ },
+ {
+  "index": 88,
+  "label": "தீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ீ",
+  "count": 43
+ },
+ {
+  "index": 89,
+  "label": "து",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ு",
+  "count": 54
+ },
+ {
+  "index": 90,
+  "label": "தூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ூ",
+  "count": 77
+ },
+ {
+  "index": 91,
+  "label": "தெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ெ",
+  "count": 45
+ },
+ {
+  "index": 92,
+  "label": "தெள",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "variant",
+  "consonant": "த",
+  "vowel": "ெள*",
+  "count": 74
+ },
+ {
+  "index": 93,
+  "label": "தே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ே",
+  "count": 45
+ },
+ {
+  "index": 94,
+  "label": "தை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ை",
+  "count": 67
+ },
+ {
+  "index": 95,
+  "label": "தொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ொ",
+  "count": 67
+ },
+ {
+  "index": 96,
+  "label": "தோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "த",
+  "vowel": "ோ",
+  "count": 62
+ },
+ {
+  "index": 97,
+  "label": "ந",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "",
+  "count": 45
+ },
+ {
+  "index": 98,
+  "label": "நா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ா",
+  "count": 44
+ },
+ {
+  "index": 99,
+  "label": "நி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ி",
+  "count": 43
+ },
+ {
+  "index": 100,
+  "label": "நீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ீ",
+  "count": 42
+ },
+ {
+  "index": 101,
+  "label": "நு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 102,
+  "label": "நூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ூ",
+  "count": 43
+ },
+ {
+  "index": 103,
+  "label": "நெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ெ",
+  "count": 41
+ },
+ {
+  "index": 104,
+  "label": "நே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ே",
+  "count": 76
+ },
+ {
+  "index": 105,
+  "label": "நை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ை",
+  "count": 44
+ },
+ {
+  "index": 106,
+  "label": "நொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ொ",
+  "count": 40
+ },
+ {
+  "index": 107,
+  "label": "நோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ோ",
+  "count": 42
+ },
+ {
+  "index": 108,
+  "label": "நௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ந",
+  "vowel": "ௌ",
+  "count": 43
+ },
+ {
+  "index": 109,
+  "label": "ன",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "",
+  "count": 41
+ },
+ {
+  "index": 110,
+  "label": "னா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ா",
+  "count": 42
+ },
+ {
+  "index": 111,
+  "label": "னி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ி",
+  "count": 42
+ },
+ {
+  "index": 112,
+  "label": "னீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ீ",
+  "count": 67
+ },
+ {
+  "index": 113,
+  "label": "னு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 114,
+  "label": "னூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ூ",
+  "count": 44
+ },
+ {
+  "index": 115,
+  "label": "னெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ெ",
+  "count": 42
+ },
+ {
+  "index": 116,
+  "label": "னே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ே",
+  "count": 43
+ },
+ {
+  "index": 117,
+  "label": "னை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ை",
+  "count": 80
+ },
+ {
+  "index": 118,
+  "label": "னொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ொ",
+  "count": 41
+ },
+ {
+  "index": 119,
+  "label": "னோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ோ",
+  "count": 76
+ },
+ {
+  "index": 120,
+  "label": "னௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ன",
+  "vowel": "ௌ",
+  "count": 81
+ },
+ {
+  "index": 121,
+  "label": "ப",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "",
+  "count": 43
+ },
+ {
+  "index": 122,
+  "label": "பா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ா",
+  "count": 45
+ },
+ {
+  "index": 123,
+  "label": "பி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ி",
+  "count": 45
+ },
+ {
+  "index": 124,
+  "label": "பீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ீ",
+  "count": 45
+ },
+ {
+  "index": 125,
+  "label": "பு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ு",
+  "count": 79
+ },
+ {
+  "index": 126,
+  "label": "பூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ூ",
+  "count": 77
+ },
+ {
+  "index": 127,
+  "label": "பெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ெ",
+  "count": 78
+ },
+ {
+  "index": 128,
+  "label": "பே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ே",
+  "count": 74
+ },
+ {
+  "index": 129,
+  "label": "பை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ை",
+  "count": 83
+ },
+ {
+  "index": 130,
+  "label": "பொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ொ",
+  "count": 84
+ },
+ {
+  "index": 131,
+  "label": "போ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ோ",
+  "count": 83
+ },
+ {
+  "index": 132,
+  "label": "பௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ப",
+  "vowel": "ௌ",
+  "count": 86
+ },
+ {
+  "index": 133,
+  "label": "ம",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "",
+  "count": 79
+ },
+ {
+  "index": 134,
+  "label": "மா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ா",
+  "count": 76
+ },
+ {
+  "index": 135,
+  "label": "மி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ி",
+  "count": 58
+ },
+ {
+  "index": 136,
+  "label": "மீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ீ",
+  "count": 76
+ },
+ {
+  "index": 137,
+  "label": "மு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ு",
+  "count": 46
+ },
+ {
+  "index": 138,
+  "label": "மூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ூ",
+  "count": 46
+ },
+ {
+  "index": 139,
+  "label": "மெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ெ",
+  "count": 44
+ },
+ {
+  "index": 140,
+  "label": "மே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ே",
+  "count": 44
+ },
+ {
+  "index": 141,
+  "label": "மை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ை",
+  "count": 44
+ },
+ {
+  "index": 142,
+  "label": "மொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ொ",
+  "count": 43
+ },
+ {
+  "index": 143,
+  "label": "மோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ோ",
+  "count": 43
+ },
+ {
+  "index": 144,
+  "label": "மௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ம",
+  "vowel": "ௌ",
+  "count": 42
+ },
+ {
+  "index": 145,
+  "label": "ய",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "",
+  "count": 81
+ },
+ {
+  "index": 146,
+  "label": "யா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ா",
+  "count": 78
+ },
+ {
+  "index": 147,
+  "label": "யி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ி",
+  "count": 81
+ },
+ {
+  "index": 148,
+  "label": "யீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ீ",
+  "count": 77
+ },
+ {
+  "index": 149,
+  "label": "யு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ு",
+  "count": 77
+ },
+ {
+  "index": 150,
+  "label": "யூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ூ",
+  "count": 71
+ },
+ {
+  "index": 151,
+  "label": "யெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ெ",
+  "count": 80
+ },
+ {
+  "index": 152,
+  "label": "யே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ே",
+  "count": 73
+ },
+ {
+  "index": 153,
+  "label": "யை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ை",
+  "count": 76
+ },
+ {
+  "index": 154,
+  "label": "யொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ொ",
+  "count": 77
+ },
+ {
+  "index": 155,
+  "label": "யோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ோ",
+  "count": 75
+ },
+ {
+  "index": 156,
+  "label": "யௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ய",
+  "vowel": "ௌ",
+  "count": 76
+ },
+ {
+  "index": 157,
+  "label": "ர",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "",
+  "count": 45
+ },
+ {
+  "index": 158,
+  "label": "ரா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ா",
+  "count": 43
+ },
+ {
+  "index": 159,
+  "label": "ரி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ி",
+  "count": 67
+ },
+ {
+  "index": 160,
+  "label": "ரீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ீ",
+  "count": 66
+ },
+ {
+  "index": 161,
+  "label": "ரு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 162,
+  "label": "ரூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ூ",
+  "count": 50
+ },
+ {
+  "index": 163,
+  "label": "ரெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ெ",
+  "count": 44
+ },
+ {
+  "index": 164,
+  "label": "ரே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ே",
+  "count": 41
+ },
+ {
+  "index": 165,
+  "label": "ரை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ை",
+  "count": 43
+ },
+ {
+  "index": 166,
+  "label": "ரொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ொ",
+  "count": 42
+ },
+ {
+  "index": 167,
+  "label": "ரோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ோ",
+  "count": 66
+ },
+ {
+  "index": 168,
+  "label": "ரௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ர",
+  "vowel": "ௌ",
+  "count": 71
+ },
+ {
+  "index": 169,
+  "label": "ற",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "",
+  "count": 46
+ },
+ {
+  "index": 170,
+  "label": "றா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ா",
+  "count": 42
+ },
+ {
+  "index": 171,
+  "label": "றி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ி",
+  "count": 44
+ },
+ {
+  "index": 172,
+  "label": "றீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ீ",
+  "count": 45
+ },
+ {
+  "index": 173,
+  "label": "று",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 174,
+  "label": "றூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ூ",
+  "count": 46
+ },
+ {
+  "index": 175,
+  "label": "றெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ெ",
+  "count": 42
+ },
+ {
+  "index": 176,
+  "label": "றே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ே",
+  "count": 43
+ },
+ {
+  "index": 177,
+  "label": "றை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ை",
+  "count": 43
+ },
+ {
+  "index": 178,
+  "label": "றொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ொ",
+  "count": 44
+ },
+ {
+  "index": 179,
+  "label": "றோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ோ",
+  "count": 44
+ },
+ {
+  "index": 180,
+  "label": "றௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ற",
+  "vowel": "ௌ",
+  "count": 44
+ },
+ {
+  "index": 181,
+  "label": "ல",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "",
+  "count": 44
+ },
+ {
+  "index": 182,
+  "label": "லா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ா",
+  "count": 44
+ },
+ {
+  "index": 183,
+  "label": "லி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ி",
+  "count": 46
+ },
+ {
+  "index": 184,
+  "label": "லீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ீ",
+  "count": 46
+ },
+ {
+  "index": 185,
+  "label": "லு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ு",
+  "count": 43
+ },
+ {
+  "index": 186,
+  "label": "லூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ூ",
+  "count": 45
+ },
+ {
+  "index": 187,
+  "label": "லெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ெ",
+  "count": 45
+ },
+ {
+  "index": 188,
+  "label": "லெள",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "variant",
+  "consonant": "ல",
+  "vowel": "ெள*",
+  "count": 45
+ },
+ {
+  "index": 189,
+  "label": "லே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ே",
+  "count": 43
+ },
+ {
+  "index": 190,
+  "label": "லை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ை",
+  "count": 46
+ },
+ {
+  "index": 191,
+  "label": "லொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ொ",
+  "count": 43
+ },
+ {
+  "index": 192,
+  "label": "லோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ல",
+  "vowel": "ோ",
+  "count": 45
+ },
+ {
+  "index": 193,
+  "label": "ள",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "",
+  "count": 73
+ },
+ {
+  "index": 194,
+  "label": "ளா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ா",
+  "count": 79
+ },
+ {
+  "index": 195,
+  "label": "ளி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ி",
+  "count": 80
+ },
+ {
+  "index": 196,
+  "label": "ளீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ீ",
+  "count": 81
+ },
+ {
+  "index": 197,
+  "label": "ளு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ு",
+  "count": 44
+ },
+ {
+  "index": 198,
+  "label": "ளூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ூ",
+  "count": 43
+ },
+ {
+  "index": 199,
+  "label": "ளெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ெ",
+  "count": 44
+ },
+ {
+  "index": 200,
+  "label": "ளெள",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "variant",
+  "consonant": "ள",
+  "vowel": "ெள*",
+  "count": 42
+ },
+ {
+  "index": 201,
+  "label": "ளே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ே",
+  "count": 44
+ },
+ {
+  "index": 202,
+  "label": "ளை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ை",
+  "count": 46
+ },
+ {
+  "index": 203,
+  "label": "ளொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ொ",
+  "count": 44
+ },
+ {
+  "index": 204,
+  "label": "ளோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ள",
+  "vowel": "ோ",
+  "count": 43
+ },
+ {
+  "index": 205,
+  "label": "ழ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "",
+  "count": 4
+ },
+ {
+  "index": 206,
+  "label": "ழா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ா",
+  "count": 4
+ },
+ {
+  "index": 207,
+  "label": "ழி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ி",
+  "count": 6
+ },
+ {
+  "index": 208,
+  "label": "ழீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ீ",
+  "count": 6
+ },
+ {
+  "index": 209,
+  "label": "ழு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ு",
+  "count": 42
+ },
+ {
+  "index": 210,
+  "label": "ழூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ூ",
+  "count": 46
+ },
+ {
+  "index": 211,
+  "label": "ழெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ெ",
+  "count": 45
+ },
+ {
+  "index": 212,
+  "label": "ழே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ே",
+  "count": 45
+ },
+ {
+  "index": 213,
+  "label": "ழை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ை",
+  "count": 44
+ },
+ {
+  "index": 214,
+  "label": "ழொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ொ",
+  "count": 43
+ },
+ {
+  "index": 215,
+  "label": "ழோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ோ",
+  "count": 46
+ },
+ {
+  "index": 216,
+  "label": "ழௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "ழ",
+  "vowel": "ௌ",
+  "count": 45
+ },
+ {
+  "index": 217,
+  "label": "வ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "",
+  "count": 75
+ },
+ {
+  "index": 218,
+  "label": "வா",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ா",
+  "count": 70
+ },
+ {
+  "index": 219,
+  "label": "வி",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ி",
+  "count": 74
+ },
+ {
+  "index": 220,
+  "label": "வீ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ீ",
+  "count": 70
+ },
+ {
+  "index": 221,
+  "label": "வு",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ு",
+  "count": 43
+ },
+ {
+  "index": 222,
+  "label": "வூ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ூ",
+  "count": 43
+ },
+ {
+  "index": 223,
+  "label": "வெ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ெ",
+  "count": 43
+ },
+ {
+  "index": 224,
+  "label": "வே",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ே",
+  "count": 43
+ },
+ {
+  "index": 225,
+  "label": "வை",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ை",
+  "count": 43
+ },
+ {
+  "index": 226,
+  "label": "வொ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ொ",
+  "count": 45
+ },
+ {
+  "index": 227,
+  "label": "வோ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ோ",
+  "count": 43
+ },
+ {
+  "index": 228,
+  "label": "வௌ",
+  "category": "உயிர்மெய் எழுத்துக்கள",
+  "category_en": "consonant-vowel",
+  "kind": "compound",
+  "consonant": "வ",
+  "vowel": "ௌ",
+  "count": 43
+ },
+ {
+  "index": 229,
+  "label": "க்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "க",
+  "vowel": "-",
+  "count": 86
+ },
+ {
+  "index": 230,
+  "label": "ங்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ங",
+  "vowel": "-",
+  "count": 87
+ },
+ {
+  "index": 231,
+  "label": "ச்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ச",
+  "vowel": "-",
+  "count": 85
+ },
+ {
+  "index": 232,
+  "label": "ஞ்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ஞ",
+  "vowel": "-",
+  "count": 85
+ },
+ {
+  "index": 233,
+  "label": "ட்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ட",
+  "vowel": "-",
+  "count": 82
+ },
+ {
+  "index": 234,
+  "label": "ண்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ண",
+  "vowel": "-",
+  "count": 83
+ },
+ {
+  "index": 235,
+  "label": "த்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "த",
+  "vowel": "-",
+  "count": 82
+ },
+ {
+  "index": 236,
+  "label": "ந்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ந",
+  "vowel": "-",
+  "count": 85
+ },
+ {
+  "index": 237,
+  "label": "ன்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ன",
+  "vowel": "-",
+  "count": 75
+ },
+ {
+  "index": 238,
+  "label": "ப்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ப",
+  "vowel": "-",
+  "count": 86
+ },
+ {
+  "index": 239,
+  "label": "ம்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ம",
+  "vowel": "-",
+  "count": 85
+ },
+ {
+  "index": 240,
+  "label": "ய்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ய",
+  "vowel": "-",
+  "count": 84
+ },
+ {
+  "index": 241,
+  "label": "ர்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ர",
+  "vowel": "-",
+  "count": 88
+ },
+ {
+  "index": 242,
+  "label": "ற்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ற",
+  "vowel": "-",
+  "count": 83
+ },
+ {
+  "index": 243,
+  "label": "ல்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ல",
+  "vowel": "-",
+  "count": 75
+ },
+ {
+  "index": 244,
+  "label": "ள்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ள",
+  "vowel": "-",
+  "count": 85
+ },
+ {
+  "index": 245,
+  "label": "ழ்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "ழ",
+  "vowel": "-",
+  "count": 78
+ },
+ {
+  "index": 246,
+  "label": "வ்",
+  "category": "மெய் எழுத்துக்கள்",
+  "category_en": "consonant",
+  "kind": "consonant",
+  "consonant": "வ",
+  "vowel": "-",
+  "count": 82
+ }
+]

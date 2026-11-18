@@ -1,0 +1,104 @@
+{
+  "letters": {
+    "அ": {
+      "enrolled_from_train_images": 5,
+      "evaluated_images (val+test pools)": 28,
+      "before_rejected_as_unknown": 0.0,
+      "before_top_predictions": {
+        "னு": 7,
+        "லு": 7,
+        "வு": 6
+      },
+      "after_top1": 0.8928571428571429,
+      "after_top5": 0.9285714285714286,
+      "after_accepted_and_correct": 0.8928571428571429
+    },
+    "ஏ": {
+      "enrolled_from_train_images": 5,
+      "evaluated_images (val+test pools)": 24,
+      "before_rejected_as_unknown": 0.0,
+      "before_top_predictions": {
+        "எ": 17,
+        "ஒ": 2,
+        "வு": 1
+      },
+      "after_top1": 0.9583333333333334,
+      "after_top5": 0.9583333333333334,
+      "after_accepted_and_correct": 0.9583333333333334
+    },
+    "கே": {
+      "enrolled_from_train_images": 5,
+      "evaluated_images (val+test pools)": 28,
+      "before_rejected_as_unknown": 0.03571428571428571,
+      "before_top_predictions": {
+        "சே": 11,
+        "தே": 10,
+        "கெ": 3
+      },
+      "after_top1": 0.8571428571428571,
+      "after_top5": 0.9285714285714286,
+      "after_accepted_and_correct": 0.8571428571428571
+    },
+    "ஙை": {
+      "enrolled_from_train_images": 5,
+      "evaluated_images (val+test pools)": 12,
+      "before_rejected_as_unknown": 0.0,
+      "before_top_predictions": {
+        "வை": 5,
+        "மை": 3,
+        "லை": 1
+      },
+      "after_top1": 0.75,
+      "after_top5": 0.9166666666666666,
+      "after_accepted_and_correct": 0.75
+    },
+    "ச": {
+      "enrolled_from_train_images": 5,
+      "evaluated_images (val+test pools)": 14,
+      "before_rejected_as_unknown": 0.0,
+      "before_top_predictions": {
+        "ச்": 10,
+        "து": 1,
+        "சு": 1
+      },
+      "after_top1": 0.5,
+      "after_top5": 0.7857142857142857,
+      "after_accepted_and_correct": 0.5
+    },
+    "சி": {
+      "enrolled_from_train_images": 5,
+      "evaluated_images (val+test pools)": 14,
+      "before_rejected_as_unknown": 0.0,
+      "before_top_predictions": {
+        "கி": 5,
+        "தி": 4,
+        "ழீ": 1
+      },
+      "after_top1": 0.7857142857142857,
+      "after_top5": 0.8571428571428571,
+      "after_accepted_and_correct": 0.7857142857142857
+    }
+  },
+  "note": "Part 1 uses real handwriting of novel letters; Part 2 (தௌ) uses font-rendered glyphs.",
+  "missing_letter": {
+    "label": "தௌ",
+    "enrolled_images": 5,
+    "source": "font-rendered + augmented (demo)",
+    "before": [
+      "கெ",
+      "கோ",
+      "கெ",
+      "செ",
+      "தொ"
+    ],
+    "after": [
+      "தௌ",
+      "தௌ",
+      "தௌ",
+      "தௌ",
+      "தௌ"
+    ],
+    "after_top1": 1.0,
+    "registry_size_after": 248
+  }
+}

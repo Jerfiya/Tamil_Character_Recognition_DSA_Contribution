@@ -1,0 +1,15 @@
+# environments / caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# training outputs (too large for GitHub; ~860 MB of checkpoints)
+tamil-dl-fewshot-htr/runs/
+tamil-dl-fewshot-htr/runs_dev/
+tamil-dl-fewshot-htr/runs_dev2/
+tamil-dl-fewshot-htr/runs_failed/
+
+# preprocessed arrays, regenerated from the dataset by the pipeline
+tamil-dl-fewshot-htr/data/processed/*.npy

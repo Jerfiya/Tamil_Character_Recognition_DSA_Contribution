@@ -1,0 +1,1 @@
+22:48:10 INFO    train | LR finder: steepest descent at lr=1.42e-03, loss minimum at lr=1.01e-02 (csv: C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\reports\lr_finder\protonet_conv4_B.csv)

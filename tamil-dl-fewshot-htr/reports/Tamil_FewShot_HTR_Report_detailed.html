@@ -1,0 +1,271 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Tamil Few-Shot HTR Report</title><style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', 'Nirmala UI', Arial, sans-serif; font-size: 10.2pt; line-height: 1.45; color: #1a1a1a; }
+.ta { font-family: 'Nirmala UI', 'Noto Sans Tamil', sans-serif; }
+h1 { font-size: 15pt; color: #12355b; border-bottom: 2px solid #12355b; padding-bottom: 3px; margin: 0 0 8px; page-break-after: avoid; }
+h2 { font-size: 12pt; color: #12355b; margin: 14px 0 5px; page-break-after: avoid; }
+h3 { font-size: 10.5pt; margin: 10px 0 4px; page-break-after: avoid; }
+p { margin: 4px 0 7px; text-align: justify; }
+ul, ol { margin: 3px 0 8px 18px; padding: 0; } li { margin: 2px 0; }
+table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 8.8pt; page-break-inside: avoid; }
+th { background: #12355b; color: #fff; font-weight: 600; padding: 4px 5px; text-align: left; }
+td { border-bottom: 1px solid #d5dbe3; padding: 3px 5px; vertical-align: top; }
+tr:nth-child(even) td { background: #f4f7fb; }
+tr.hl td { background: #fff4d6 !important; font-weight: 600; }
+figure { margin: 8px 0 12px; text-align: center; page-break-inside: avoid; }
+figure img { max-width: 100%; border: 1px solid #e3e3e3; }
+figcaption { font-size: 8.6pt; color: #444; margin-top: 3px; text-align: left; }
+.section { page-break-before: always; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: space-between; }
+.cover .band { background: #12355b; color: #fff; padding: 22px 24px; border-radius: 4px; }
+.cover h0 { display: block; font-size: 22pt; font-weight: 700; line-height: 1.2; }
+.cover .sub { font-size: 12pt; margin-top: 8px; opacity: .92; }
+.meta td { border: none; padding: 3px 6px; font-size: 10.5pt; background: none !important; }
+.kpis { display: flex; gap: 8px; margin: 8px 0 10px; }
+.kpi { flex: 1; border: 1px solid #c9d3df; border-radius: 4px; padding: 7px 8px; text-align: center; }
+.kpi b { display: block; font-size: 15pt; color: #12355b; }
+.kpi span { font-size: 8.2pt; color: #444; }
+.note { background: #f4f7fb; border-left: 3px solid #12355b; padding: 6px 9px; margin: 6px 0 10px; font-size: 9.4pt; }
+.warn { background: #fff7e6; border-left: 3px solid #d48806; padding: 6px 9px; margin: 6px 0 10px; font-size: 9.4pt; }
+.two { display: flex; gap: 10px; } .two > * { flex: 1; }
+.small { font-size: 8.6pt; color: #444; }
+</style></head><body><div class="cover"><div>
+<div class="band"><h0>Handwritten Tamil Character Recognition with Few-Shot Deep Learning</h0>
+<div class="sub">Project report: proposed model, dataset analysis and performance evaluation</div></div>
+<table class="meta" style="margin-top:26px;width:auto">
+<tr><td><b>Prepared by</b></td><td>[Your name]</td></tr>
+<tr><td><b>Submitted to</b></td><td>[Mentor&#x27;s name]</td></tr>
+<tr><td><b>Institution</b></td><td>[Institution / department]</td></tr>
+<tr><td><b>Date</b></td><td>17 November 2026</td></tr>
+<tr><td><b>Proposed model</b></td><td>Prototypical Network with an ImageNet-pretrained MobileNetV3-Large backbone (96 × 96 input)</td></tr>
+</table></div>
+<div><h2>Abstract</h2>
+<p>This report presents a few-shot deep-learning system for recognising handwritten Tamil characters. The system
+learns a metric embedding in which a letter is represented by the mean of a few example images (a
+<i>prototype</i>), so a letter can be recognised from 1 to 5 examples and new letters can be added without
+retraining. Eight few-shot methods and several backbones were trained and compared on a cleaned dataset of
+14,205 images covering 247 letter classes. The proposed model, a Prototypical
+Network on an ImageNet-pretrained MobileNetV3-Large, was selected on validation loss. On
+37 letters never seen during training it reaches <b>95.6% ± 0.4</b> accuracy on 5-way 5-shot
+episodes, 89.7% on 5-way 1-shot, and 83.3% when every query is
+classified among all 37 unseen letters (macro-F1 0.820). After temperature
+scaling its confidences are well calibrated (ECE 0.164 → 0.044). The model is
+exported to ONNX and runs in about 1.4 ms per image on a laptop CPU.</p></div></div><div class="section"><h1>1. Executive summary</h1>
+<div class="kpis">
+<div class="kpi"><b>95.6%</b><span>5-way 5-shot accuracy<br>on unseen letters</span></div>
+<div class="kpi"><b>89.7%</b><span>5-way 1-shot accuracy<br>on unseen letters</span></div>
+<div class="kpi"><b>83.3%</b><span>accuracy among all 37<br>unseen letters (top-5 97.1%)</span></div>
+<div class="kpi"><b>0.044</b><span>calibration error (ECE)<br>after temperature scaling</span></div>
+<div class="kpi"><b>1.4 ms</b><span>CPU time per image<br>(ONNX Runtime)</span></div></div>
+<ul>
+<li><b>Task.</b> Recognise isolated handwritten Tamil letters (vowels, consonants, consonant-vowel compounds and
+āytham) from very few examples per letter, and allow new letters to be enrolled without retraining.</li>
+<li><b>Data.</b> 14,463 images in 247 classes. 258 near-duplicates were removed
+before any split. 3 letters of the 18 × 12 compound grid are missing (<span class="ta">தௌ, லௌ, ளௌ</span>).</li>
+<li><b>Evaluation.</b> The main protocol (Protocol B) holds out 37 entire letter classes that are
+never used for training, which is the true few-shot test. A second protocol (A) evaluates letters seen in training
+on held-out images. Test data was used once per checkpoint. Every design choice was made on validation data.</li>
+<li><b>Proposed model.</b> Prototypical Network, MobileNetV3-Large backbone pretrained on ImageNet, 128-dimensional
+embedding, 96 × 96 grey input, 4.32 M parameters. It had the lowest validation loss of the
+19 runs (0.2204).</li>
+<li><b>Main findings.</b> ImageNet pretraining gives the largest single improvement. The episodic metric methods
+(ProtoNet, Matching Net, ArcFace → ProtoNet) perform within about one point of each other with a small backbone.
+Errors concentrate on two-part vowel signs (ொ, ோ, ௌ) and on visually similar consonant shapes.</li>
+<li><b>Limitations.</b> Training ran on a laptop CPU, so the models are small and under-trained: validation loss
+was still falling at the end. Open-set ("unknown letter") rejection is reliable only for small enrolled sets.</li>
+</ul></div><div class="section"><h1>2. Introduction and objectives</h1>
+<p>The Tamil script has 12 vowels, 18 consonants, the āytham (<span class="ta">ஃ</span>) and 216 consonant-vowel
+compounds, giving 247 letters. Many letters differ only in a small stroke, a loop or the position of a vowel sign.
+Collecting large labelled sets for every letter is costly, and the compound letters are numerous. A conventional
+classifier also needs retraining whenever a letter is added. <b>Few-shot learning</b> addresses both problems.
+The network learns an embedding space in which images of the same letter lie close together. A letter is then
+described by a handful of examples rather than by trained output weights.</p>
+<h2>Objectives</h2><ol>
+<li>Audit and clean the handwritten Tamil dataset, and build leakage-free evaluation protocols.</li>
+<li>Train and compare deep few-shot methods (Prototypical, Matching and Relation Networks, Siamese/triplet,
+ArcFace pre-training, Baseline++, first-order MAML) against a supervised CNN baseline.</li>
+<li>Monitor training rigorously (epoch-level loss curves, overfitting and plateau detection) and choose all
+settings on validation data.</li>
+<li>Evaluate once on held-out test data: accuracy over N-way K-shot episodes with confidence intervals, F1,
+confusion analysis, calibration and open-set rejection.</li>
+<li>Deliver a deployable model (ONNX) that can enrol new letters without retraining.</li></ol>
+<p class="small">Implementation: Python 3.12.0, PyTorch 2.15.0+cpu, timm,
+OpenCV, scikit-learn and ONNX Runtime. Hardware: Intel Core i5-1335U laptop CPU, 16 GB RAM, no GPU.</p><h1 style="margin-top:14px">3. Dataset</h1>
+<h2>3.1 Description and audit</h2>
+<p>The dataset ("Tamil Letters Combined") is organised as <i>category / letter / images</i>. It was located by a
+recursive scan and treated as read-only. A content fingerprint confirmed that it was unchanged at the end of the
+project. The class label is the Unicode-normalised (NFC) name of the folder that contains the images.</p>
+<table class=""><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Letter classes with images</td><td>247 (vowels 12, consonants 18, compounds 216, āytham 1)</td></tr><tr><td>Image files</td><td>14,463 PNG, all 48 × 48 pixels; 0 corrupt, 0 zip archives, 0 empty or nested folders</td></tr><tr><td>Near-duplicates removed (perceptual hash, Hamming ≤ 4)</td><td>258, removed before any split</td></tr><tr><td>Usable images</td><td>14,205 (3 more blank images dropped after preprocessing)</td></tr><tr><td>Images per class after cleaning</td><td>min 4 / median 46 / max 96</td></tr><tr><td>Classes with fewer than 15 images</td><td><span class="ta">ணே, ணெ, ழா, ழ</span> (4); <span class="ta">ணு, ணூ</span> (5); <span class="ta">ழி, ழீ</span> (6)</td></tr><tr><td>Missing from the 18 × 12 compound grid</td><td><span class="ta">தௌ, லௌ, ளௌ</span></td></tr><tr><td>Possible spelling variants (kept separate, flagged)</td><td><span class="ta">தெள, லெள, ளெள</span>: encoded as consonant + ெ (U+0BC6) + ள (U+0BB3) instead of the single sign ௌ (U+0BCC); they look identical when rendered</td></tr><tr><td>Ink polarity</td><td>14,180 dark-on-light, 25 light-on-dark (normalised automatically)</td></tr><tr><td>Source groups (from file names)</td><td>other 11,013, numeric 1,324, screenshot 781, img_date 374, whatsapp 278, resized 248, scanned 161, pxl 26</td></tr></tbody></table>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/figures/class_counts.png" style="width:100%"/><figcaption><b>Figure 1.</b> Images per class before and after near-duplicate removal.</figcaption></figure>
+<h2>3.2 Preprocessing</h2>
+<p>One module is used for training and for inference, so the two cannot drift apart. Steps: alpha compositing on
+white, conversion to grey, light denoising, automatic ink-polarity detection (normalised to white ink on black),
+Otsu thresholding with a soft mask that keeps grey levels inside the strokes, cropping to the ink bounding box with
+an 8% margin, padding to a square without distorting the aspect ratio, resizing (48 px for Conv4 models, 96 px for
+the proposed model) and normalisation. Soft thresholding was chosen because hard binarisation broke thin strokes
+at this resolution.</p>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/preprocess_samples.png" style="width:82%"/><figcaption><b>Figure 2.</b> Random preprocessed samples (white ink on black, cropped and centred).</figcaption></figure>
+<h2>3.3 Evaluation protocols</h2>
+<p><b>Protocol B (novel classes, main protocol).</b> The letter classes are split 70/15/15, stratified by category,
+into 173 base classes (training), 37 validation classes (model selection) and
+37 novel classes (final test). The novel letters are never seen during training. A
+<i>hard-novel</i> subset of 31 compounds contains letters whose consonant and vowel sign
+both appear in base classes in other combinations (for example, <span class="ta">கொ</span> held out while
+<span class="ta">க</span> and <span class="ta">கோ</span> are seen). This tests compositional generalisation.</p>
+<p><b>Protocol A (known classes).</b> Within every class, images are split 70/15/15 (train/val/test), stratified by
+source group. Support examples come from the train pool and queries from the test pool.</p>
+<table class=""><thead><tr><th>Protocol B part</th><th>Classes</th><th>Images</th><th>Use</th></tr></thead><tbody><tr><td>Base</td><td>173</td><td>9,825</td><td>training only</td></tr><tr><td>Validation</td><td>37</td><td>2,271</td><td>epochs, learning rate, model selection, calibration</td></tr><tr><td>Novel (test)</td><td>37</td><td>2,106</td><td>final test, evaluated once</td></tr><tr><td>Hard-novel (subset of novel)</td><td>31</td><td>1,643</td><td>compositional generalisation test</td></tr></tbody></table>
+<p class="small">Novel test letters: <span class="ta">அ ஏ கே ஙை ச சி ஞ ஞா ஞி ஞௌ டி டெ ட் ணௌ தி தோ த் நௌ னீ னூ ப பௌ மி மௌ யீ ரே ற றோ லி லீ லெ லெள ளீ ழொ ழ் வா வௌ</span></p>
+<div class="note"><b>Leakage controls.</b> Duplicates were removed before splitting. Base, validation and novel classes
+are disjoint (unit-tested). No image appears in both the support set and the query set of an episode.
+Validation uses a fixed list of episodes, so loss values are comparable across epochs. Test data was evaluated
+once per checkpoint, and a guard file blocks a second evaluation.</div></div><div class="section"><h1>4. Methodology</h1>
+<h2>4.1 Few-shot formulation</h2>
+<p>Training and testing use <i>episodes</i>. An N-way K-shot episode draws N letters, K labelled <i>support</i>
+images per letter and Q unlabelled <i>query</i> images per letter. The model must label the queries using only
+the support images. Classes are sampled uniformly, so every episode is class-balanced regardless of the class
+imbalance in the dataset.</p>
+<h2>4.2 Proposed model: Prototypical Network with a pretrained MobileNetV3-Large</h2>
+<table class=""><thead><tr><th>Component</th><th>Design</th></tr></thead><tbody><tr><td>Input</td><td>1 × 96 × 96 grey image, ink-normalised (Section 3.2)</td></tr><tr><td>Backbone</td><td>MobileNetV3-Large pretrained on ImageNet-1k (timm), stem adapted to one channel by summing the RGB filters</td></tr><tr><td>Embedding head</td><td>global average pooling → linear layer → 128-dimensional embedding</td></tr><tr><td>Prototype</td><td>mean embedding of the K support images of each letter</td></tr><tr><td>Classifier</td><td>softmax over −(squared Euclidean distance / D) × 16 × learnable temperature</td></tr><tr><td>Loss</td><td>cross-entropy over the episode's queries, label smoothing 0.05</td></tr><tr><td>Parameters / compute</td><td>4.32 M parameters, 40 M FLOPs per image</td></tr><tr><td>Calibration</td><td>temperature T = 0.64 fitted on validation episodes</td></tr><tr><td>Unknown-letter rejection</td><td>maximum score below a threshold fitted on validation data (accepts 95% of enrolled letters)</td></tr></tbody></table>
+<p>The network learns an embedding in which images of the same letter cluster together. After training, enrolling a
+letter only requires computing its prototype from a few images. No weights change, so new or missing letters (for
+example <span class="ta">தௌ</span>) can be added at deployment time.</p>
+<h2>4.3 Training recipe</h2>
+<table class=""><thead><tr><th>Setting</th><th>Value</th></tr></thead><tbody><tr><td>Episodes</td><td>20-way 5-shot 5-query from the 173 base classes; one epoch = 50 episodes</td></tr><tr><td>Optimiser</td><td>AdamW, learning rate 1 × 10⁻³, weight decay 5 × 10⁻⁴, gradient clipping at 5</td></tr><tr><td>Schedule</td><td>2 warm-up epochs, then cosine decay to 1% of the peak</td></tr><tr><td>Weight averaging</td><td>exponential moving average of the weights (decay 0.995); the EMA model is validated and deployed</td></tr><tr><td>Augmentation (training only)</td><td>rotation ±10°, shift/zoom ±10%, shear ±8°, elastic distortion, noise/blur, stroke thickness, brightness/contrast, small random erasing. No flips or large rotations: Tamil letters are not symmetric.</td></tr><tr><td>Validation</td><td>fixed set of 100 episodes, 10-way 5-shot, on the 37 validation classes, without augmentation</td></tr><tr><td>Checkpoint selection</td><td>lowest validation loss (early stopping on validation loss, patience 10)</td></tr><tr><td>Training length</td><td>8 epochs; best epoch 8 (val loss 0.2204, val accuracy 94.0%)</td></tr></tbody></table>
+<h2>4.4 Methods compared</h2>
+<p>All methods use the same splits, the same episodes and the same training recipe:</p><ul>
+<li><b>Prototypical Network</b>: mean-prototype classifier (the proposed approach).</li>
+<li><b>Matching Network</b>: cosine attention over all support images.</li>
+<li><b>Relation Network</b>: a learned module scores concatenated support/query feature maps.</li>
+<li><b>Siamese (triplet)</b>: triplet loss with hard-negative mining; nearest-prototype decision.</li>
+<li><b>ArcFace</b>: angular-margin classification pretraining on the base classes. Evaluated directly, and as an
+initialisation for episodic ProtoNet fine-tuning.</li>
+<li><b>Baseline++</b>: frozen backbone with a cosine classifier fitted on each episode's support images.</li>
+<li><b>First-order MAML</b>: gradient-based adaptation on each episode.</li>
+<li><b>Supervised CE classifier</b>: conventional non-few-shot reference (Protocol A only).</li></ul>
+<p>Two further techniques were evaluated as separate result rows: <b>transductive refinement</b> (soft k-means on
+the unlabelled queries) and <b>temperature scaling</b>.</p>
+<h2>4.5 Evaluation metrics</h2>
+<p>Episode accuracy is the mean over ≥ 600 test episodes with a 95% confidence interval (FO-MAML: 100 episodes),
+for N ∈ {5, 10, 20, all} and K ∈ {1, 2, 3, 5, 10}. The full-set evaluation classifies every test query among
+all test classes with 5 support images each, and reports accuracy, top-3/5, macro and weighted F1, per-class
+precision/recall/F1 and the confusion matrix. Calibration is measured by expected calibration error (ECE, 15
+bins) before and after temperature scaling. Open-set performance is measured by AUROC and rejection rates.</p></div><div class="section"><h1>5. Training monitoring and model selection (validation data only)</h1>
+<p>Every run logged training and validation loss and accuracy per epoch, together with learning rate, gradient norms,
+embedding norms and prototype separation. Automatic detectors flagged overfitting (training loss falling while
+validation loss rises for 3 epochs) and plateaus. <b>No run triggered the overfitting detector.</b> In every run
+the best validation epoch was the last or second-to-last.</p>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/loss_curve.png" style="width:88%"/><figcaption><b>Figure 3.</b> Proposed model: training vs validation loss per epoch (best epoch marked). Training loss is higher because training episodes are augmented and 20-way, while validation episodes are clean and 10-way.</figcaption></figure>
+<h2>5.1 Epoch budget</h2>
+<p>A 40-epoch study (ProtoNet, Conv4, early stopping off) shows validation loss decreasing until epoch
+36 (0.2215). Validation accuracy rises from
+92.32% at epoch 15 to 93.72%. The recommended budget
+is therefore about 44 epochs. Compute limits restricted the compared runs to 15 epochs and the proposed model to
+8, so all reported test numbers are conservative.</p>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/figures/epoch_study.png" style="width:80%"/><figcaption><b>Figure 4.</b> Epoch-budget study: validation loss keeps improving until about epoch 36, with no sign of overfitting.</figcaption></figure>
+<div class="two"><div><h2>5.2 Learning rate</h2>
+<table class=""><thead><tr><th>Learning rate</th><th>Best val loss</th><th>Val acc %</th></tr></thead><tbody><tr><td>lr 3e-3</td><td>0.3063</td><td>90.80 ± 0.87</td></tr><tr><td>lr 1e-3</td><td>0.3383</td><td>89.46 ± 0.98</td></tr><tr><td>lr 3e-4</td><td>0.4193</td><td>86.52 ± 1.30</td></tr><tr><td>lr 1e-4</td><td>0.5642</td><td>80.68 ± 1.44</td></tr></tbody></table>
+<p class="small">8-epoch ProtoNet runs. A learning-rate range test suggested ~1.4 × 10⁻³; 3 × 10⁻³ was best
+in the comparison and is recommended for the next training round.</p></div>
+<div><h2>5.3 Backbone and pretraining</h2>
+<table class=""><thead><tr><th>Backbone</th><th>Params</th><th>Best val loss</th><th>Val acc %</th></tr></thead><tbody><tr class="hl"><td>MobileNetV3-L ImageNet-pretrained, 96 px</td><td>4,325 k</td><td>0.2204</td><td>93.98 ± 0.76</td></tr><tr><td>Conv4 from scratch, 48 px</td><td>186 k</td><td>0.3383</td><td>89.46 ± 0.98</td></tr><tr><td>MobileNetV3-L from scratch, 96 px</td><td>4,325 k</td><td>0.7066</td><td>75.22 ± 1.52</td></tr></tbody></table>
+<p class="small">ImageNet pretraining is the largest single effect: +4.5 points over Conv4, and +18.8 points over the
+same network trained from scratch. This run was selected as the proposed model.</p></div></div></div><div class="section"><h1>6. Results of the proposed model (test set)</h1>
+<p>All results in this section are on the 37 <b>novel letters, which were never used in training</b>
+(Protocol B), using checkpoint <code>best_val_loss.pt</code> (epoch 8). The best-accuracy
+and last checkpoints are the same epoch and give the same numbers.</p>
+<h2>6.1 Few-shot accuracy (N-way × K-shot, % ± 95% CI, ≥ 600 episodes per cell)</h2>
+<table class=""><thead><tr><th>Split</th><th>N-way</th><th>1-shot</th><th>2-shot</th><th>3-shot</th><th>5-shot</th><th>10-shot</th></tr></thead><tbody><tr><td>Novel</td><td>5-way</td><td>89.7 <span class='small'>±0.8</span></td><td>94.1 <span class='small'>±0.5</span></td><td>94.6 <span class='small'>±0.4</span></td><td>95.4 <span class='small'>±0.4</span></td><td>95.8 <span class='small'>±0.4</span></td></tr><tr><td>Novel</td><td>10-way</td><td>83.6 <span class='small'>±0.7</span></td><td>89.6 <span class='small'>±0.5</span></td><td>90.9 <span class='small'>±0.5</span></td><td>92.1 <span class='small'>±0.4</span></td><td>92.6 <span class='small'>±0.4</span></td></tr><tr><td>Novel</td><td>20-way</td><td>77.2 <span class='small'>±0.5</span></td><td>84.2 <span class='small'>±0.4</span></td><td>86.4 <span class='small'>±0.4</span></td><td>88.0 <span class='small'>±0.3</span></td><td>88.6 <span class='small'>±0.3</span></td></tr><tr><td>Novel</td><td>all (37)</td><td>70.2 <span class='small'>±0.4</span></td><td>78.2 <span class='small'>±0.2</span></td><td>81.3 <span class='small'>±0.2</span></td><td>83.5 <span class='small'>±0.2</span></td><td>84.6 <span class='small'>±0.2</span></td></tr><tr><td>Hard-novel</td><td>5-way</td><td>90.6 <span class='small'>±0.7</span></td><td>94.0 <span class='small'>±0.5</span></td><td>95.1 <span class='small'>±0.4</span></td><td>95.3 <span class='small'>±0.4</span></td><td>95.7 <span class='small'>±0.4</span></td></tr><tr><td>Hard-novel</td><td>10-way</td><td>84.0 <span class='small'>±0.7</span></td><td>89.5 <span class='small'>±0.5</span></td><td>91.0 <span class='small'>±0.4</span></td><td>92.0 <span class='small'>±0.4</span></td><td>93.1 <span class='small'>±0.3</span></td></tr><tr><td>Hard-novel</td><td>20-way</td><td>77.8 <span class='small'>±0.5</span></td><td>84.6 <span class='small'>±0.4</span></td><td>86.5 <span class='small'>±0.3</span></td><td>88.2 <span class='small'>±0.3</span></td><td>89.0 <span class='small'>±0.3</span></td></tr><tr><td>Hard-novel</td><td>all (31)</td><td>72.7 <span class='small'>±0.4</span></td><td>80.5 <span class='small'>±0.3</span></td><td>82.9 <span class='small'>±0.2</span></td><td>84.9 <span class='small'>±0.2</span></td><td>86.1 <span class='small'>±0.2</span></td></tr></tbody></table>
+<p class="small">The headline 5-way 5-shot figure (95.6% ± 0.4) comes from an independently sampled set of 600 episodes and
+agrees with the grid cell within the confidence interval. Hard-novel letters are recognised as well as other novel
+letters, so the embedding generalises to unseen consonant/vowel-sign combinations.</p>
+<div class="two"><figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/fewshot_vs_shot.png" style="width:100%"/><figcaption><b>Figure 5.</b> Accuracy vs number of support examples (K).</figcaption></figure><figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/fewshot_vs_way.png" style="width:100%"/><figcaption><b>Figure 6.</b> Accuracy vs number of candidate letters (N).</figcaption></figure></div>
+<h2>6.2 Full-set classification among all 37 unseen letters (5 support images each)</h2>
+<table class=""><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Queries</td><td>1,921</td></tr><tr><td>Top-1 accuracy</td><td><b>83.3%</b></td></tr><tr><td>Top-3 / top-5 accuracy</td><td>94.7% / 97.1%</td></tr><tr><td>Macro F1 / weighted F1</td><td>0.820 / 0.834</td></tr><tr><td>Negative log-likelihood (before → after calibration)</td><td>0.663 → 0.560</td></tr><tr><td>Expected calibration error (before → after)</td><td>0.164 → 0.044</td></tr><tr><td>Letters with F1 ≥ 0.90 / F1 < 0.50</td><td>17 / 3 of 37</td></tr></tbody></table>
+<div class="two"><div><h3>Accuracy by category</h3><table class=""><thead><tr><th>Category</th><th>Acc %</th><th>Queries</th></tr></thead><tbody><tr><td>consonant</td><td>85.5</td><td>227</td></tr><tr><td>consonant-vowel</td><td>81.9</td><td>1528</td></tr><tr><td>vowel</td><td>92.8</td><td>166</td></tr></tbody></table></div>
+<div><h3>Accuracy by vowel sign (lowest first)</h3><table class=""><thead><tr><th>Vowel sign</th><th>Acc %</th><th>Queries</th></tr></thead><tbody><tr><td><span class="ta">ெள*</span></td><td>22.5</td><td>40</td></tr><tr><td><span class="ta">ௌ</span></td><td>61.5</td><td>309</td></tr><tr><td><span class="ta">ோ</span></td><td>76.0</td><td>96</td></tr><tr><td><span class="ta">-</span></td><td>85.5</td><td>227</td></tr><tr><td><span class="ta">ீ</span></td><td>87.3</td><td>251</td></tr><tr><td><span class="ta">ி</span></td><td>89.1</td><td>248</td></tr><tr><td><span class="ta">ொ</span></td><td>89.5</td><td>38</td></tr><tr><td><span class="ta">ூ</span></td><td>89.7</td><td>39</td></tr></tbody></table></div></div>
+<p class="small">"-" = pure consonant (with pulli); "ெள*" = the flagged spelling variants (<span class="ta">லெள</span> is a novel test class).</p>
+<div class="section"></div>
+<h2>6.3 Per-letter performance</h2>
+<div class="two"><div><h3>Ten weakest letters</h3><table class=""><thead><tr><th>Letter</th><th>Precision</th><th>Recall</th><th>F1</th><th>Queries</th></tr></thead><tbody><tr><td><span class="ta">லெள</span></td><td>0.45</td><td>0.23</td><td>0.30</td><td>40</td></tr><tr><td><span class="ta">மௌ</span></td><td>0.32</td><td>0.32</td><td>0.32</td><td>37</td></tr><tr><td><span class="ta">வௌ</span></td><td>0.28</td><td>0.47</td><td>0.35</td><td>38</td></tr><tr><td><span class="ta">றோ</span></td><td>0.74</td><td>0.51</td><td>0.61</td><td>39</td></tr><tr><td><span class="ta">ஞௌ</span></td><td>0.97</td><td>0.47</td><td>0.64</td><td>76</td></tr><tr><td><span class="ta">ணௌ</span></td><td>0.51</td><td>0.97</td><td>0.67</td><td>39</td></tr><tr><td><span class="ta">டி</span></td><td>0.56</td><td>0.95</td><td>0.71</td><td>37</td></tr><tr><td><span class="ta">நௌ</span></td><td>0.63</td><td>0.84</td><td>0.72</td><td>38</td></tr><tr><td><span class="ta">பௌ</span></td><td>0.84</td><td>0.67</td><td>0.74</td><td>81</td></tr><tr><td><span class="ta">னீ</span></td><td>0.67</td><td>0.94</td><td>0.78</td><td>62</td></tr></tbody></table></div>
+<div><h3>Ten strongest letters</h3><table class=""><thead><tr><th>Letter</th><th>Precision</th><th>Recall</th><th>F1</th><th>Queries</th></tr></thead><tbody><tr><td><span class="ta">யீ</span></td><td>1.00</td><td>0.97</td><td>0.99</td><td>72</td></tr><tr><td><span class="ta">கே</span></td><td>0.98</td><td>0.99</td><td>0.98</td><td>85</td></tr><tr><td><span class="ta">ற</span></td><td>1.00</td><td>0.93</td><td>0.96</td><td>41</td></tr><tr><td><span class="ta">டெ</span></td><td>0.93</td><td>1.00</td><td>0.96</td><td>37</td></tr><tr><td><span class="ta">அ</span></td><td>0.98</td><td>0.94</td><td>0.96</td><td>90</td></tr><tr><td><span class="ta">ஙை</span></td><td>0.97</td><td>0.95</td><td>0.96</td><td>38</td></tr><tr><td><span class="ta">ரே</span></td><td>0.94</td><td>0.94</td><td>0.94</td><td>36</td></tr><tr><td><span class="ta">மி</span></td><td>0.96</td><td>0.92</td><td>0.94</td><td>53</td></tr><tr><td><span class="ta">ச</span></td><td>1.00</td><td>0.88</td><td>0.94</td><td>43</td></tr><tr><td><span class="ta">வா</span></td><td>0.95</td><td>0.92</td><td>0.94</td><td>65</td></tr></tbody></table></div></div>
+<h3>Most-confused letter pairs</h3>
+<table class=""><thead><tr><th>Pair</th><th>A predicted as B</th><th>B predicted as A</th><th>Total</th><th>Rate %</th></tr></thead><tbody><tr><td><span class="ta">லெள ↔ வௌ</span></td><td>22</td><td>3</td><td>25</td><td>32.1</td></tr><tr><td><span class="ta">னீ ↔ ளீ</span></td><td>3</td><td>20</td><td>23</td><td>16.7</td></tr><tr><td><span class="ta">மௌ ↔ வௌ</span></td><td>11</td><td>8</td><td>19</td><td>25.3</td></tr><tr><td><span class="ta">பௌ ↔ மௌ</span></td><td>13</td><td>6</td><td>19</td><td>16.1</td></tr><tr><td><span class="ta">தோ ↔ றோ</span></td><td>2</td><td>13</td><td>15</td><td>15.6</td></tr><tr><td><span class="ta">டி ↔ ழ்</span></td><td>0</td><td>14</td><td>14</td><td>12.7</td></tr><tr><td><span class="ta">ஞௌ ↔ நௌ</span></td><td>13</td><td>0</td><td>13</td><td>11.4</td></tr><tr><td><span class="ta">ணௌ ↔ வௌ</span></td><td>0</td><td>8</td><td>8</td><td>10.4</td></tr><tr><td><span class="ta">ஞௌ ↔ வௌ</span></td><td>7</td><td>0</td><td>7</td><td>6.1</td></tr><tr><td><span class="ta">ஞௌ ↔ ணௌ</span></td><td>6</td><td>0</td><td>6</td><td>5.2</td></tr></tbody></table>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/confusion_zoom.png" style="width:78%"/><figcaption><b>Figure 7.</b> Confusion among the most-confused unseen letters (rows = true letter).</figcaption></figure>
+<p>The errors follow the structure of the script. The weakest letters carry the two-part vowel signs ௌ, ோ and
+ொ, whose parts sit on both sides of the consonant (<span class="ta">லெள/வௌ, மௌ/வௌ, பௌ/மௌ, தோ/றோ</span>). Other errors come
+from consonants that differ in a single loop or tail (<span class="ta">னீ/ளீ, டி/ழ்</span>). At 48-px source
+resolution, the pulli dot of <span class="ta">ழ்</span> is often barely visible.</p>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/misclassified.png" style="width:92%"/><figcaption><b>Figure 8.</b> Most confident test errors (true → predicted, confidence, source group). Several are data-quality problems: solid bars and dark shaded backgrounds.</figcaption></figure>
+<h2>6.4 What the network attends to</h2>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/gradcam.png" style="width:88%"/><figcaption><b>Figure 9.</b> Grad-CAM saliency for correctly classified (top rows) and misclassified (bottom rows) queries.</figcaption></figure>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/tsne.png" style="width:100%"/><figcaption><b>Figure 10.</b> t-SNE of test embeddings coloured by category, consonant row and vowel sign. The embedding is organised largely by vowel sign; the ொ/ோ/ௌ family forms one dense region, which matches the confusions.</figcaption></figure>
+<h2>6.5 Calibration, open-set rejection and robustness</h2>
+<table class=""><thead><tr><th>Analysis</th><th>Result</th></tr></thead><tbody><tr><td>Temperature scaling (fitted on validation data)</td><td>T = 0.64; ECE 0.164 → 0.044</td></tr><tr><td>Open-set rejection (half the test letters enrolled, half unseen)</td><td>AUROC 0.938; rejects 59.4% of unseen-letter queries; falsely rejects 3.5% of enrolled-letter queries</td></tr><tr><td>Transductive prototype refinement</td><td>5-way 1-shot +3.6 pp; 5-way 5-shot +0.4 pp; 10-way 1-shot +5.5 pp; 10-way 5-shot +0.5 pp</td></tr><tr><td>Source-aware test (support and queries from different source groups, 5-way 5-shot)</td><td>96.5% vs 95.3% unconstrained (no drop)</td></tr></tbody></table>
+<div class="two"><figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/reliability.png" style="width:100%"/><figcaption><b>Figure 11.</b> Reliability diagram before and after temperature scaling.</figcaption></figure><figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96/plots/openset.png" style="width:100%"/><figcaption><b>Figure 12.</b> Open-set ROC and score distributions (enrolled vs unseen letters).</figcaption></figure></div></div><div class="section"><h1>7. Comparison with other methods</h1>
+<p>Protocol B rows report unseen letters, and Protocol A rows report seen letters on held-out images. Accuracy is in %.
+"All" means all classes of the test split (37 for B, 247 for A). Latency is PyTorch, batch 1, on an idle CPU
+(2 threads).</p>
+<table class=""><thead><tr><th>Method</th><th>Backbone</th><th>Prot.</th><th>Params</th><th>ms/img</th><th>Best ep.</th><th>5w1s</th><th>5w5s</th><th>20w5s</th><th>All-way 5s</th><th>Macro F1</th><th>ECE</th></tr></thead><tbody><tr><td>ProtoNet</td><td>Conv4</td><td>A</td><td>186 k</td><td>1.2</td><td>15/15</td><td>90.4</td><td><span style='white-space:nowrap'>95.3 ± 0.4</span></td><td>89.1</td><td>60.9</td><td>0.593</td><td>0.065</td></tr><tr><td>Supervised CE</td><td>Conv4</td><td>A</td><td>217 k</td><td>1.2</td><td>15/15</td><td>87.3</td><td><span style='white-space:nowrap'>93.5 ± 0.5</span></td><td>85.2</td><td>54.4</td><td>0.540</td><td>0.091</td></tr><tr class="hl"><td><b>ProtoNet (proposed)</b></td><td>MobileNetV3-L (ImageNet)</td><td>B</td><td>4,325 k</td><td>4.9</td><td>8/8</td><td>89.7</td><td><span style='white-space:nowrap'>95.6 ± 0.4</span></td><td>88.0</td><td>83.5</td><td>0.820</td><td>0.044</td></tr><tr><td>Matching Net</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.3</td><td>15/15</td><td>88.3</td><td><span style='white-space:nowrap'>95.0 ± 0.4</span></td><td>86.3</td><td>80.6</td><td>0.786</td><td>0.032</td></tr><tr><td>ProtoNet (seed 7)</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.3</td><td>15/15</td><td>87.5</td><td><span style='white-space:nowrap'>94.7 ± 0.5</span></td><td>85.5</td><td>79.9</td><td>0.788</td><td>0.045</td></tr><tr><td>ProtoNet (seed 123)</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.2</td><td>15/15</td><td>87.7</td><td><span style='white-space:nowrap'>94.6 ± 0.4</span></td><td>85.8</td><td>80.4</td><td>0.794</td><td>0.048</td></tr><tr><td>ArcFace → ProtoNet fine-tune</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.2</td><td>15/15</td><td>87.2</td><td><span style='white-space:nowrap'>94.6 ± 0.5</span></td><td>86.4</td><td>81.2</td><td>0.783</td><td>0.046</td></tr><tr><td>ProtoNet (seed 42)</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.2</td><td>15/15</td><td>87.5</td><td><span style='white-space:nowrap'>94.4 ± 0.5</span></td><td>85.8</td><td>80.3</td><td>0.777</td><td>0.042</td></tr><tr><td>Siamese (triplet)</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.3</td><td>14/15</td><td>89.0</td><td><span style='white-space:nowrap'>94.1 ± 0.5</span></td><td>83.6</td><td>76.4</td><td>0.759</td><td>0.026</td></tr><tr><td>Relation Net</td><td>Conv4</td><td>B</td><td>313 k</td><td>1.2</td><td>14/15</td><td>86.8</td><td><span style='white-space:nowrap'>94.0 ± 0.5</span></td><td>83.2</td><td>76.3</td><td>0.750</td><td>0.029</td></tr><tr><td>ArcFace (cosine prototypes)</td><td>Conv4</td><td>B</td><td>208 k</td><td>1.2</td><td>15/15</td><td>84.9</td><td><span style='white-space:nowrap'>93.2 ± 0.5</span></td><td>82.9</td><td>76.8</td><td>0.750</td><td>0.039</td></tr><tr><td>Baseline++</td><td>Conv4</td><td>B</td><td>208 k</td><td>1.2</td><td>15/15</td><td>84.3</td><td><span style='white-space:nowrap'>92.4 ± 0.5</span></td><td>81.3</td><td>75.4</td><td>0.734</td><td>0.040</td></tr><tr><td>FO-MAML</td><td>Conv4</td><td>B</td><td>186 k</td><td>1.4</td><td>8/8</td><td>86.1</td><td><span style='white-space:nowrap'>71.3 ± 5.4</span></td><td>80.7</td><td>—</td><td>0.622</td><td>0.049</td></tr></tbody></table>
+<p class="small">Across 3 seeds, ProtoNet (Conv4) reaches 94.4 ± 0.3% at 5-way 5-shot and 87.6 ± 0.1% at 5-way 1-shot, so differences under about 0.5 points between Conv4 methods are not significant. FO-MAML is evaluated on 100 episodes per cell, so its intervals are wider; its 5-shot
+accuracy falls below its 1-shot accuracy, which indicates an unstable inner loop.</p>
+<ul>
+<li><b>Few-shot vs supervised.</b> On known letters (Protocol A), episodic ProtoNet beats the supervised CE
+classifier at 5-way 5-shot and when classifying among all 247 letters, using the same backbone.</li>
+<li><b>Known vs novel letters.</b> At 5-way 5-shot the gap between Protocol A and Protocol B is under one point, so
+the embedding transfers to unseen letters almost as well as to seen ones.</li>
+<li><b>Method choice.</b> With a small backbone, ProtoNet, Matching Net and ArcFace → ProtoNet are statistically
+tied. ArcFace pretraining gives the best Conv4 validation loss. Relation Net, Siamese and Baseline++ fall behind
+on the harder all-way task.</li>
+<li><b>Backbone.</b> The pretrained MobileNetV3 is the best model at every N and K, despite only 8 training epochs.</li>
+</ul>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/figures/report_learning_curves.png" style="width:100%"/><figcaption><b>Figure 13.</b> Learning curves on unseen letters: test accuracy (± 95% CI) vs number of support examples, for the final run of each method (FO-MAML evaluated on a reduced grid).</figcaption></figure></div><div class="section"><h1>8. Deployment</h1>
+<table class=""><thead><tr><th>Item</th><th>Result</th></tr></thead><tbody><tr><td>Export</td><td>ONNX (opset 17), 11.8 MB, <code>models/embedder.onnx</code>; preprocessing, temperature and threshold in <code>models/deploy.json</code></td></tr><tr><td>Parity with PyTorch</td><td>max |difference| 1.1e-05 over 256 images (cosine similarity 1.000). Passed.</td></tr><tr><td>CPU latency per image</td><td>ONNX Runtime 1.4 ms; PyTorch 8.2 ms (export run) and 4.9 ms (idle re-measurement)</td></tr><tr><td>Support registry</td><td>5 training images per letter for all 247 letters; prototypes cached in <code>prototypes.npz</code> and refreshed with one command</td></tr><tr><td>Tools</td><td><code>predict.py</code> (image/folder → top-5 + calibrated confidence + 'unknown'), a drawing-canvas app with live enrolment, a webcam app</td></tr></tbody></table>
+<h2>8.1 Enrolling letters without retraining</h2>
+<p>Each of 6 novel letters was removed from the registry, enrolled from 5 of its training images, and then
+recognised on its held-out images. The missing letter <span class="ta">தௌ</span> was enrolled from 5 font-rendered
+glyphs (a demonstration, because no handwritten samples exist) and recognised on 5/5 probe images.</p>
+<table class=""><thead><tr><th>Letter</th><th>Rejected as unknown before enrolment %</th><th>Top-1 after %</th><th>Top-5 after %</th><th>Images evaluated</th></tr></thead><tbody><tr><td><span class="ta">அ</span></td><td>0</td><td>89</td><td>93</td><td>28</td></tr><tr><td><span class="ta">ஏ</span></td><td>0</td><td>96</td><td>96</td><td>24</td></tr><tr><td><span class="ta">கே</span></td><td>4</td><td>86</td><td>93</td><td>28</td></tr><tr><td><span class="ta">ஙை</span></td><td>0</td><td>75</td><td>92</td><td>12</td></tr><tr><td><span class="ta">ச</span></td><td>0</td><td>50</td><td>79</td><td>14</td></tr><tr><td><span class="ta">சி</span></td><td>0</td><td>79</td><td>86</td><td>14</td></tr></tbody></table>
+<figure><img src="file:///C:/Users/Dell/Downloads/project_kl/tamil-dl-fewshot-htr/reports/figures/enrollment_demo.png" style="width:85%"/><figcaption><b>Figure 14.</b> Enrolment demonstration: novel letters and the missing letter தௌ added without retraining.</figcaption></figure>
+<div class="warn"><b>Limitation of open-set rejection.</b> At the episode level the model separates enrolled from
+unseen letters well (AUROC 0.94). Against the full 246-letter registry, however, an unseen letter is
+almost always close to some enrolled letter. Before enrolment, only a few percent of a new letter's images were
+rejected as "unknown". The "unknown" output should therefore be treated as a weak signal in full-alphabet use.</div></div><div class="section"><h1>9. Limitations</h1><ul>
+<li><b>Compute.</b> All training ran on a laptop CPU: small backbones, 50-episode epochs, 15 epochs for the compared
+methods and 8 for the proposed model. The epoch study shows validation loss still improving until about epoch 36.
+The reported numbers are lower bounds.</li>
+<li><b>Ablations not run.</b> Train-time way and shot, embedding size, distance metric, EMA, input size, ResNet-12/18
+and EfficientNet-B0 were not compared because of time and memory limits.</li>
+<li><b>Data.</b> Every image is 48 × 48, so fine details such as the pulli dot are near the resolution limit. Some
+images have dark shaded backgrounds or are unusable crops. Eight letters have fewer than 15 images. Writer identity
+is not recorded, so the source-aware test relies on coarse file-name groups (78% are "other").</li>
+<li><b>Labels.</b> <span class="ta">தெள, லெள, ளெள</span> are stored as consonant + ெ (U+0BC6) + ள (U+0BB3),
+while the other 15 consonant rows use the single au sign ௌ (U+0BCC). The two spellings look identical on screen, so
+these classes are probably the "missing" <span class="ta">தௌ, லௌ, ளௌ</span> written with a different encoding. They were kept separate pending review. This also
+lowers the measured accuracy for the ௌ sign.</li>
+<li><b>Open set.</b> Rejection of unknown letters is weak at full-alphabet scale (Section 8).</li></ul>
+<h1 style="margin-top:14px">10. Conclusion and future work</h1>
+<p>A complete few-shot recognition pipeline for handwritten Tamil was built and evaluated rigorously. The proposed
+Prototypical Network with an ImageNet-pretrained MobileNetV3-Large recognises letters it has never seen with
+<b>95.6% ± 0.4</b> accuracy from five examples (5-way) and <b>83.3%</b> among all
+37 unseen letters. Its confidences are well calibrated. It runs in about
+1.4 ms per image on a CPU, and new letters can be added without retraining.
+The comparison shows that, in this regime, the choice and pretraining of the backbone matter more than the choice
+among episodic metric-learning methods.</p>
+<h2>Recommended next steps</h2><ol>
+<li>Retrain the proposed model for ~44 epochs at learning rate 3 × 10⁻³, initialised with ArcFace pretraining
+(the best Conv4 recipe), preferably on a GPU with 200-episode epochs.</li>
+<li>Collect more samples for the small classes (<span class="ta">ணே ணெ ழா ழ ணு ணூ ழி ழீ</span>) and for the
+ொ/ோ/ௌ family, and remove unusable images.</li>
+<li>Resolve the <span class="ta">தெள/லெள/ளெள</span> spelling question, and collect handwritten samples of
+<span class="ta">தௌ, லௌ, ளௌ</span>.</li>
+<li>Record writer IDs to enable a true writer-independent evaluation.</li>
+<li>Improve open-set rejection, for example with per-letter thresholds or distance-to-second-best scores.</li></ol>
+<h2>Appendix: reproducibility</h2>
+<p class="small">Fixed seeds (Python, NumPy, PyTorch, data loaders). Every run stores its configuration snapshot,
+environment and package versions, per-epoch and per-step metrics, checkpoints and test files under
+<code>runs/&lt;run&gt;/</code>. Proposed model run: <code>runs/20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96</code>. All plots can be regenerated
+from stored results with <code>python src/visualize.py --all</code>, and this report with
+<code>python src/make_report.py</code>. The dataset folder was verified to be unmodified at the end of the project
+(14,470 files: 0 added, removed or changed). 53 automated tests pass.</p></div></body></html>

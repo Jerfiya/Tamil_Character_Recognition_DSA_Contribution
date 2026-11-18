@@ -1,0 +1,15 @@
+02:01:12 INFO    timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/mobilenetv3_large_100.ra_in1k)
+02:01:13 INFO    timm.models._hub | [timm/mobilenetv3_large_100.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+02:01:13 INFO    timm.models._builder | Converted input conv conv_stem pretrained weights from 3 to 1 channel(s)
+02:01:15 INFO    train | run dir: C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\runs\20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96
+02:20:12 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+02:20:12 INFO    tracking |     1 |    2.2216    1.1274 |  0.3360   0.6332 +-0.0160 0.8826 | 5.10e-04  1137s   3.955  0.22   1.23  1.01 | *L*A
+02:31:42 INFO    tracking |     2 |    0.9716    0.4991 |  0.6986   0.8542 +-0.0123 0.9648 | 1.00e-03   690s   3.453  0.02   1.71  1.01 | *L*A
+02:42:52 INFO    tracking |     3 |    0.6340    0.3204 |  0.8174   0.9006 +-0.0100 0.9772 | 9.34e-04   669s   2.202  0.00   1.92  1.00 | *L*A
+02:50:44 INFO    tracking |     4 |    0.4964    0.2751 |  0.8686   0.9220 +-0.0091 0.9836 | 7.52e-04   470s   1.730  0.00   2.03  1.00 | *L*A
+02:58:30 INFO    tracking |     5 |    0.3829    0.2410 |  0.9052   0.9316 +-0.0082 0.9820 | 5.05e-04   465s   1.541  0.00   2.04  0.99 | *L*A
+03:06:41 INFO    tracking |     6 |    0.3573    0.2316 |  0.9110   0.9366 +-0.0074 0.9856 | 2.58e-04   490s   1.367  0.00   2.06  0.99 | *L*A
+03:13:35 INFO    tracking |     7 |    0.3308    0.2279 |  0.9134   0.9372 +-0.0073 0.9858 | 7.63e-05   414s   1.303  0.00   2.06  0.99 | *L*A
+03:19:55 INFO    tracking |     8 |    0.2872    0.2204 |  0.9338   0.9398 +-0.0076 0.9856 | 1.00e-05   379s   1.231  0.00   2.05  0.99 | *L*A
+03:19:56 INFO    tracking | run finished: max_epochs (best val loss 0.2204 at epoch 8; best val acc 0.9398 at epoch 8)
+RUN_DIR=C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\runs\20261117_020113_protonet_mobilenetv3_large_B_abl_mnv3_pre96

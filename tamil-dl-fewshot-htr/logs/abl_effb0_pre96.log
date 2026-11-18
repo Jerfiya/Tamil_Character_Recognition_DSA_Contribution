@@ -1,0 +1,7 @@
+02:27:05 INFO    timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+02:27:05 INFO    timm.models._hub | [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+02:27:05 INFO    timm.models._builder | Converted input conv conv_stem pretrained weights from 3 to 1 channel(s)
+02:27:08 INFO    train | run dir: C:\Users\Dell\Downloads\project_kl\tamil-dl-fewshot-htr\runs\20261117_022706_protonet_efficientnet_b0_B_abl_effb0_pre96
+02:46:24 INFO    tracking | epoch | train_loss  val_loss |  tr_acc val_acc (95% CI)   top3 |       lr   time   gnorm  clip    sep  temp | flags
+02:46:24 INFO    tracking |     1 |    2.3358    1.1351 |  0.2726   0.6158 +-0.0150 0.8808 | 5.10e-04  1155s   4.572  0.50   1.23  1.01 | *L*A
+03:00:56 INFO    tracking |     2 |    1.1410    0.5678 |  0.6378   0.8182 +-0.0129 0.9618 | 1.00e-03   871s   4.664  0.34   1.71  1.00 | *L*A
