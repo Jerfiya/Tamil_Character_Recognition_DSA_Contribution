@@ -16,3 +16,6 @@ tamil-dl-fewshot-htr/data/processed/*.npy
 
 # web UI caches (per-model prototypes, self-signed LAN certificate)
 tamil-dl-fewshot-htr/ui/cache/
+
+# contributor sheet (contains personal emails)
+combined_with_year.csv.xlsx
