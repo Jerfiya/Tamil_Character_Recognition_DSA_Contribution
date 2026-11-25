@@ -103,6 +103,8 @@ Lakshminarayanan R · Syed Ashique Y · T. Sanjana · Theeraj J · Roshini S T S
 
 👉 **Full list with department, college and year: [CONTRIBUTORS.md](CONTRIBUTORS.md)**
 
+✍️ **Helped build the dataset? [Add yourself as a contributor](CONTRIBUTING.md)**. It takes 2 minutes in the browser.
+
 ---
 
 ## 💡 What it does

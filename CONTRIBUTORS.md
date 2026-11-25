@@ -83,4 +83,6 @@ Every contributor is also credited as a **co-author** in the repository's commit
 
 **Abbreviations:** ADS = Artificial Intelligence & Data Science · AML = Artificial Intelligence & Machine Learning · CSE = Computer Science & Engineering · CSBS = Computer Science & Business Systems · IT = Information Technology
 
+✍️ **Are you on this list? [Add yourself to the GitHub Contributors list](CONTRIBUTING.md).**
+
 [⬅️ Back to README](README.md)
