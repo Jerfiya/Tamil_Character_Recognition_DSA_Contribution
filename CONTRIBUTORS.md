@@ -6,6 +6,8 @@
 
 The handwritten Tamil letters in [`tamil_handwritten_Dataset/`](tamil_handwritten_Dataset/) were written, scanned and labelled by these students. Thank you! 🙏
 
+Every contributor is also credited as a **co-author** in the repository's commit history.
+
 **SJCE** = St. Joseph's College of Engineering · **SJIT** = St. Joseph's Institute of Technology
 
 </div>
