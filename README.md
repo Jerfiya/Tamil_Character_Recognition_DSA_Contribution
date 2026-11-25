@@ -14,9 +14,8 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
 ![ONNX](https://img.shields.io/badge/ONNX%20Runtime-005CED?logo=onnx&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
-[📊 Results](#-results) • [🗂️ Dataset](#%EF%B8%8F-the-dataset) • [🚀 Quick start](#-quick-start) • [🖥️ Web app](#%EF%B8%8F-try-it-in-the-browser) • [📚 Reports](#-reports)
+[📊 Results](#-results) • [🗂️ Dataset](#%EF%B8%8F-the-dataset) • [🚀 Quick start](#-quick-start) • [📚 Reports](#-reports)
 
 </div>
 
@@ -134,32 +133,6 @@ The full audit is in [`reports/audit.md`](tamil-dl-fewshot-htr/reports/audit.md)
 
 ---
 
-## 🖥️ Try it in the browser
-
-A web app for **drawing**, **uploading** or **photographing** a letter. It works offline on a laptop, tablet or phone.
-
-| Mode | What it does |
-|---|---|
-| 🔎 **Recognize** | Shows the top-5 letters with confidence and a Grad-CAM view of where the model looked |
-| ✏️ **Practice** | Shows a letter to write, then answers "சரி!" or "மீண்டும் முயற்சி" |
-| ➕ **Enroll** | Teaches the app a new letter from 3–5 samples, without retraining |
-
-![Web app](tamil-dl-fewshot-htr/reports/ui_screenshots/laptop_dark.png)
-
-<details>
-<summary><b>📱 More screenshots: phone, tablet, camera, practice</b></summary>
-
-| Phone | Tablet | Practice |
-|:---:|:---:|:---:|
-| <img src="tamil-dl-fewshot-htr/reports/ui_screenshots/mobile_iphone13_draw_result.png" width="220"> | <img src="tamil-dl-fewshot-htr/reports/ui_screenshots/tablet_portrait.png" width="260"> | <img src="tamil-dl-fewshot-htr/reports/ui_screenshots/practice_correct.png" width="300"> |
-
-| Camera | Enroll | Light theme |
-|:---:|:---:|:---:|
-| <img src="tamil-dl-fewshot-htr/reports/ui_screenshots/camera_overlay.png" width="300"> | <img src="tamil-dl-fewshot-htr/reports/ui_screenshots/enroll_samples.png" width="300"> | <img src="tamil-dl-fewshot-htr/reports/ui_screenshots/laptop_light.png" width="300"> |
-
-</details>
-
----
 
 ## 🚀 Quick start
 
@@ -174,22 +147,9 @@ pip install -r requirements.txt
 Then choose how to try it:
 
 ```bash
-python ui/run.py                           # 🖥️  web app at http://127.0.0.1:8000
-python ui/run.py --lan                     # 📱  test on your phone over Wi-Fi (HTTPS, real camera)
 python src/predict.py some_letter.png      # ⌨️  top-5 letters + confidence in the terminal
 python src/app_canvas.py                   # 🖱️  draw a letter with the mouse
 ```
-
-<details>
-<summary><b>🐳 Run with Docker</b></summary>
-
-```bash
-cd tamil-dl-fewshot-htr
-docker build -t tamil-htr .
-docker run -p 7860:7860 tamil-htr        # then open http://localhost:7860
-```
-
-</details>
 
 <details>
 <summary><b>🔁 Retrain from scratch</b></summary>
@@ -211,12 +171,10 @@ See [`tamil-dl-fewshot-htr/README.md`](tamil-dl-fewshot-htr/README.md) for the f
 📁 tamil_handwritten_Dataset/    ✍️ the dataset (category / letter / images)
 📁 tamil-dl-fewshot-htr/
 ├── 📁 src/                      data prep, training, evaluation, export, demo apps
-├── 📁 ui/                       FastAPI web app (draw · upload · camera)
-├── 📁 tests/                    pytest suite (+ Playwright UI tests)
+├── 📁 tests/                    pytest suite
 ├── 📁 models/                   embedder.onnx (deployed model), embedder.pt, deploy.json
-├── 📁 reports/                  PDF/HTML reports, comparison tables, figures, screenshots
+├── 📁 reports/                  PDF/HTML reports, comparison tables, figures
 ├── 📁 data/support_set/         enrolled example images used for prediction
-├── 🐳 Dockerfile
 └── ⚙️ config.yaml               all settings
 ```
 
@@ -239,7 +197,6 @@ See [`tamil-dl-fewshot-htr/README.md`](tamil-dl-fewshot-htr/README.md) for the f
 - ⏱️ Most models trained for only 8–15 epochs. Accuracy was still improving, and about 44 epochs is recommended.
 - 📉 8 letters have fewer than 15 images.
 - 🌀 The two-part vowel-sign letters (ொ ோ ௌ) are the hardest to recognise.
-- ✏️ Canvas strokes and phone photos look different from the scanned training images, so expect lower confidence in the web app.
 
 ---
 
