@@ -8,7 +8,6 @@
 ![Accuracy](https://img.shields.io/badge/5--way%205--shot-95.6%25-2ea44f?style=for-the-badge)
 ![AUROC](https://img.shields.io/badge/Open--set%20AUROC-0.94-blue?style=for-the-badge)
 ![Latency](https://img.shields.io/badge/CPU%20latency-1.4%20ms-orange?style=for-the-badge)
-![Classes](https://img.shields.io/badge/Letters-247-purple?style=for-the-badge)
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
@@ -25,7 +24,7 @@
 > ## 🎓 Dataset collected by PEP DSA Students
 > ### St. Joseph's College of Engineering, Chennai
 >
-> Every one of the **14,463 handwritten letter images** in [`tamil_handwritten_Dataset/`](tamil_handwritten_Dataset/) was
+> Every handwritten letter image in [`tamil_handwritten_Dataset/`](tamil_handwritten_Dataset/) was
 > written, scanned and labelled by the **PEP DSA students of St. Joseph's College of Engineering, Chennai**.
 > This project would not exist without their work. 🙏
 
@@ -103,9 +102,9 @@ Unless named otherwise, models use a small Conv4 backbone (~0.2 M parameters). E
 
 <div align="center">
 
-| 🔤 Letter classes | 🖼️ Images | 📐 Size | ✍️ Collected by |
-|:---:|:---:|:---:|:---:|
-| **247** | **14,463** | 48 × 48 PNG | **PEP DSA Students, SJCE Chennai** |
+| 📐 Image size | ✍️ Collected by |
+|:---:|:---:|
+| 48 × 48 PNG | **PEP DSA Students, SJCE Chennai** |
 
 </div>
 
@@ -123,11 +122,9 @@ Each folder holds one letter, and the folder name is the label. Two evaluation p
 - 📕 **Protocol B:** **37 letters held out completely**, to test whether the model can recognise letters it has never seen.
 
 <details>
-<summary><b>🔍 Dataset audit and figures</b></summary>
+<summary><b>🔍 Dataset audit</b></summary>
 
-![Class counts](tamil-dl-fewshot-htr/reports/figures/class_counts.png)
-
-The full audit is in [`reports/audit.md`](tamil-dl-fewshot-htr/reports/audit.md). It covers corrupt files, duplicates, label conflicts and per-class counts.
+The full audit is in [`reports/audit.md`](tamil-dl-fewshot-htr/reports/audit.md). It covers corrupt files, duplicates and label conflicts.
 
 </details>
 
@@ -195,7 +192,6 @@ See [`tamil-dl-fewshot-htr/README.md`](tamil-dl-fewshot-htr/README.md) for the f
 ## ⚠️ Limitations
 
 - ⏱️ Most models trained for only 8–15 epochs. Accuracy was still improving, and about 44 epochs is recommended.
-- 📉 8 letters have fewer than 15 images.
 - 🌀 The two-part vowel-sign letters (ொ ோ ௌ) are the hardest to recognise.
 
 ---
