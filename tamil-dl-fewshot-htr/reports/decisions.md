@@ -15,7 +15,7 @@ only by `src/evaluate.py`, which marks each checkpoint in `test/DONE.json` and r
   (supported by the epoch study, see `reports/epoch_study.md`); ablations use 8 epochs.
 
 ## Data (from the audit, `reports/audit.md`)
-- Dataset found by recursive scan at `..\Tamil Letters Combined` (never hard-coded). It is treated as
+- Dataset found by recursive scan at `..\tamil_handwritten_Dataset` (never hard-coded). It is treated as
   read-only; a content fingerprint (`data/interim/dataset_fingerprint.json`) is recorded before any
   processing and checked at the end with `python src/check_dataset_untouched.py`.
 - 247 classes with images, 14,463 PNG files, 0 corrupt, 0 zips, 0 nested or empty class folders in the

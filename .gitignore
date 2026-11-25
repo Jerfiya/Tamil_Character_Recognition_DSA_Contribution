@@ -13,3 +13,6 @@ tamil-dl-fewshot-htr/runs_failed/
 
 # preprocessed arrays, regenerated from the dataset by the pipeline
 tamil-dl-fewshot-htr/data/processed/*.npy
+
+# web UI caches (per-model prototypes, self-signed LAN certificate)
+tamil-dl-fewshot-htr/ui/cache/

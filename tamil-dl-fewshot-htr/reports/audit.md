@@ -1,6 +1,6 @@
 # Dataset audit
 
-- Dataset root (found by scan): `C:\Users\Dell\Downloads\project_kl\Tamil Letters Combined`
+- Dataset root (found by scan): `C:\Users\Dell\Downloads\project_kl\tamil_handwritten_Dataset`
 - Classes with images: **247** — per category: {'ஆய்தம': 1, 'உயிர் எழுத்துக்கள': 12, 'உயிர்மெய் எழுத்துக்கள': 216, 'மெய் எழுத்துக்கள்': 18}
 - Files seen: 14463; usable after cleaning: **14205**
 - Images per class (raw): min 4 / median 47 / max 98

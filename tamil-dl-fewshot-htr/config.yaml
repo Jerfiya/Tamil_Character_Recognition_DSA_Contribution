@@ -125,3 +125,17 @@ eval:
 deploy:
   unknown_label: unknown
   top_k: 5
+
+ui:                           # interactive web UI (python ui/run.py); never trains, never touches the dataset
+  host: 127.0.0.1             # localhost only by default; `python ui/run.py --lan` opts in to the local network (HTTPS)
+  port: 8000
+  lan_port: 8443
+  max_upload_mb: 5
+  stable_frames: 5            # live camera: same letter this many frames in a row -> "stable"
+  cache_dir: ui/cache         # per-model prototype caches for the non-default models (git-ignored)
+  models:                     # selectable models; the default is picked from reports/model_comparison.csv
+    - {id: mnv3-onnx, name: "ProtoNet · MobileNetV3-L (ONNX)", source: deploy, backend: onnx}
+    - {id: mnv3-torch, name: "ProtoNet · MobileNetV3-L (PyTorch)", source: deploy, backend: torch}
+    - {id: conv4-protonet, name: "ProtoNet · Conv4", source: run, run: 20261116_174746_protonet_conv4_B_final}
+    - {id: conv4-protonet-arcft, name: "ProtoNet ← ArcFace · Conv4", source: run, run: 20261117_010748_protonet_conv4_B_arcft_final}
+    - {id: conv4-arcface, name: "ArcFace · Conv4", source: run, run: 20261116_185222_arcface_conv4_B_final}

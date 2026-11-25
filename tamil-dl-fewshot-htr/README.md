@@ -98,6 +98,68 @@ python src/app_webcam.py                               # webcam; or --image phot
 or draw it in the canvas app and press *Enroll as new letter*. No retraining is involved. Only the
 letter's prototype is added.
 
+## Interactive UI
+
+A web app to test the deployed model by **drawing**, **uploading** or using the **camera**. It works
+offline on a laptop, tablet or phone and has three modes: **Recognize**, **Practice** (write the letter
+shown and get "சரி!" / "மீண்டும் முயற்சி") and **Enroll** (teach a letter from 3–5 samples, no retraining).
+
+![Laptop](reports/ui_screenshots/laptop_light.png)
+
+**Install and run**
+```powershell
+pip install -r requirements.txt          # adds fastapi, uvicorn, python-multipart, cryptography
+python ui/run.py                         # opens http://127.0.0.1:8000 (this computer only)
+```
+The best deployable model is loaded automatically: ProtoNet + MobileNetV3-L, ONNX, 95.6% 5-way 5-shot.
+Other trained models can be picked from the model badge in the header. Every prediction goes through the same
+`preprocessing.py` as training, and the UI's outputs match `src/predict.py` exactly.
+
+**Laptop / tablet / phone**
+- Laptop (> 1024 px): three columns (input · result · letter chart). Shortcuts: **Enter** predict, **C** clear,
+  **Z** undo, **1/2/3** Draw/Upload/Camera.
+- Tablet (640–1024 px, and touch screens up to 1194 px): input and result side by side, with the chart below.
+  Apple Pencil and stylus pressure are supported.
+- Phone (< 640 px): one column with a bottom bar (Recognize · Practice · Enroll · Chart). The result slides up
+  as a sheet; swipe it down to keep drawing.
+
+**Testing on a phone over Wi-Fi (real camera)**
+```powershell
+python ui/run.py --lan                   # prints e.g.  Phone URL: https://192.168.0.106:8443
+```
+Open the printed URL on a phone on the **same Wi-Fi** and accept the certificate warning once (*Advanced →
+Proceed*). Phones only allow the camera over HTTPS, which is why `--lan` uses a self-signed certificate. While
+it runs, the app is reachable by everyone on that network, so stop it (Ctrl+C) when done. Windows may ask to
+allow Python through the firewall.
+
+**Camera tips:** write one letter with a dark pen on plain white paper, fill most of the guide box, and use
+good, even light. The app warns "Needs more light" or "Hold steady". *Snapshot* freezes a frame (Retake / Use
+this). *Live* recognises about 2–3 times a second and shows a lock once the same letter has won 5 frames in a
+row. If the camera can't be used, *Upload a photo instead* or *Take a photo* (phones) always works.
+
+**Enrolling a letter:** switch to *Enroll* and pick the letter from the chart (no Tamil keyboard needed). Add
+3–5 samples by drawing, uploading or photographing them, then press *Save letter*. The images go to
+`data/support_set/<letter>/` and the prototypes refresh immediately. For தெள/லெள/ளெள vs தௌ/லௌ/ளௌ the app warns
+about the spelling variant and asks you to confirm.
+
+**Screenshots:** `reports/ui_screenshots/`, covering laptop light/dark, tablet portrait/landscape, phone bottom
+sheet and chart, camera overlay/snapshot/live/permission-denied/insecure, splash, skeletons, model switch,
+Practice, Enroll and the unknown state. Design choices: `reports/ui_decisions.md`.
+
+**Known limitations of the UI**
+- Accuracy depends on drawing style. The model was trained on scanned 48×48 handwriting, and a canvas stroke or a
+  phone photo looks different, so expect lower confidence than the reported test accuracy.
+- The camera needs good light, plain paper and one letter in the box. Torch and zoom appear only where the browser
+  supports them (mostly Chrome on Android).
+- "Unknown" uses the validation-calibrated threshold. It rejects clear non-letters but not every scribble.
+- Models other than the MobileNetV3 export need their checkpoints in `runs/`, which is not in the repository.
+
+**UI tests**
+```powershell
+python -m playwright install chromium                    # once
+python -m pytest tests/ui -q                             # API, parity with predict.py, browser (writes screenshots)
+```
+
 ## Tests
 
 ```powershell

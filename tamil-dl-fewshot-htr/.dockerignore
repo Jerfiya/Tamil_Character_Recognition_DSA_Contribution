@@ -1,0 +1,11 @@
+*
+!config.yaml
+!requirements-deploy.txt
+!src/
+!ui/
+!models/
+!data/support_set/
+!data/processed/class_names.json
+!reports/model_comparison.csv
+ui/cache/
+**/__pycache__/

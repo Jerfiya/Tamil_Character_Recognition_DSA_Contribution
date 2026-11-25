@@ -204,7 +204,7 @@ OpenCV, scikit-learn and ONNX Runtime. Hardware: Intel Core i5-1335U laptop CPU,
     sg = audit.get("source_groups", {})
     out.append(f"""<h1 style="margin-top:14px">3. Dataset</h1>
 <h2>3.1 Description and audit</h2>
-<p>The dataset ("Tamil Letters Combined") is organised as <i>category / letter / images</i>. It was located by a
+<p>The dataset ("tamil_handwritten_Dataset") is organised as <i>category / letter / images</i>. It was located by a
 recursive scan and treated as read-only. A content fingerprint confirmed that it was unchanged at the end of the
 project. The class label is the Unicode-normalised (NFC) name of the folder that contains the images.</p>
 {table(["Property", "Value"], [
